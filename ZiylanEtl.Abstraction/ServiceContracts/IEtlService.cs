@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System.ComponentModel;
+using System.ServiceModel;
 using System.ServiceModel.Web;
 
 namespace ZiylanEtl.Abstraction.ServiceContracts
@@ -7,7 +8,6 @@ namespace ZiylanEtl.Abstraction.ServiceContracts
     public interface IEtlService
     {
         [OperationContract(IsOneWay = true)]
-        [WebInvoke]
         void StartChildService(EtlServiceRequest etlServiceRequest);
     }
 }
