@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using System.ServiceModel.Dispatcher;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection;
 using Microsoft.Practices.Unity;
@@ -30,7 +31,7 @@ namespace ZiylanEtl.ServiceHost
 
         private static void Main()
         {
-            Logger.SetLogWriter(new LogWriterFactory().Create());
+
 
             UnityContainer = BuildUnityContainer();
             HostFactory.Run(configureCallback =>
@@ -58,9 +59,10 @@ namespace ZiylanEtl.ServiceHost
         static IUnityContainer BuildUnityContainer()
         {
             var container = new UnityContainer();
-            return container.LoadConfiguration();
-            //section.Configure(container);
-            //return container;
+            container.LoadConfiguration();
+            Logger.SetLogWriter(new LogWriterFactory().Create());
+            
+            return container;
         }
     }
 }
