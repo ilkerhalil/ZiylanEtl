@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using System.Diagnostics;
+using System.Security;
 using System.Text;
 using ZiylanEtl.Abstraction.ServiceContracts;
 using ZiylanEtl.InventChildService.Proxy;
@@ -16,7 +17,7 @@ namespace ZiylanEtl.InventChildService
     public class InventEtlChildServiceClient : BaseEtlChildService
     {
         public override string ServiceName { get; } = "INVENT";
-        
+
         public string Username { get; set; }
         public string Password { get; set; }
 
@@ -34,8 +35,10 @@ namespace ZiylanEtl.InventChildService
 
         public override void StartService()
         {
-            string logContent;
-            Stopwatch toplamZaman = Stopwatch.StartNew();
+            if (string.IsNullOrWhiteSpace(Username)) throw new SecurityException();
+            if (string.IsNullOrWhiteSpace(Password)) throw new SecurityException();
+
+            var toplamZaman = Stopwatch.StartNew();
             using (var client = new ZRT_ENT_PERAPORTClient("binding_SOAP12"))
             {
                 client.ClientCredentials.UserName.UserName = Username;
@@ -73,20 +76,20 @@ namespace ZiylanEtl.InventChildService
                         dolukoleksiyonlar = SerializeNonEmptyCollections(response);
                     }
 
-                    logContent = string.Concat(dosyaAdi, Environment.NewLine, exceptionMessage, Environment.NewLine,
+                    var logContent = string.Concat(dosyaAdi, Environment.NewLine, exceptionMessage, Environment.NewLine,
                         gecenZaman, Environment.NewLine, dolukoleksiyonlar);
 
                     AppendLog(logContent);
                 }
 
                 var toplamGecenZaman = toplamZaman.Elapsed;
-                SaveLog(DateTime.Now,toplamGecenZaman);
+                SaveLog(DateTime.Now, toplamGecenZaman);
                 toplamZaman.Stop();
 
             }
         }
 
-        private string SerializeNonEmptyCollections(ZrtEntPeraportResponse1 response)
+        private static string SerializeNonEmptyCollections(ZrtEntPeraportResponse1 response)
         {
             var arrayProperties = response.ZrtEntPeraportResponse.GetType().GetProperties().Where(w => w.PropertyType.IsArray);
             var st = arrayProperties.ToDictionary(s => s.Name, info => (info.GetValue(response.ZrtEntPeraportResponse) as Array).Length);
@@ -108,15 +111,15 @@ namespace ZiylanEtl.InventChildService
                 C7 = "",
                 C8 = "",
                 C9 = "",
-                GtZinventHrk = new ZinventHrk[] { new ZinventHrk(), },
-                GtZinventAsorti = new ZinventAsorti[] { new ZinventAsorti(), },
-                GtZinventFyt = new ZinventFyt[] { new ZinventFyt(), },
-                GtZinventMlz = new ZinventMlz[] { new ZinventMlz(), },
-                GtZinventStok = new ZinventStok[] { new ZinventStok(), },
-                GtZinventStokA = new ZinventStokA[] { new ZinventStokA(), },
-                GtZinventTes = new ZinventTes[] { new ZinventTes(), },
-                GtZinventTrn = new ZinventTrn[] { new ZinventTrn(), },
-                GtZinventUy = new ZinventUy[] { new ZinventUy(), }
+                GtZinventHrk = new[] { new ZinventHrk(), },
+                GtZinventAsorti = new[] { new ZinventAsorti(), },
+                GtZinventFyt = new[] { new ZinventFyt(), },
+                GtZinventMlz = new[] { new ZinventMlz(), },
+                GtZinventStok = new[] { new ZinventStok(), },
+                GtZinventStokA = new[] { new ZinventStokA(), },
+                GtZinventTes = new[] { new ZinventTes(), },
+                GtZinventTrn = new[] { new ZinventTrn(), },
+                GtZinventUy = new[] { new ZinventUy(), }
             };
 
             var property = zrnEntPeraPort.GetType().GetProperties().Single(w => w.Name == filter);
@@ -141,7 +144,7 @@ namespace ZiylanEtl.InventChildService
             _builder.AppendLine(content);
         }
 
-        private void SaveLog(DateTime bitisZamani,TimeSpan toplamZaman)
+        private void SaveLog(DateTime bitisZamani, TimeSpan toplamZaman)
         {
             _builder.AppendLine("</ul>");
             _builder.AppendLine("</div>");
