@@ -1,4 +1,6 @@
 ﻿using System.Configuration;
+using Microsoft.Practices.EnterpriseLibrary.Logging;
+using Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Topshelf;
@@ -28,6 +30,8 @@ namespace ZiylanEtl.ServiceHost
 
         private static void Main()
         {
+            Logger.SetLogWriter(new LogWriterFactory().Create());
+
             UnityContainer = BuildUnityContainer();
             HostFactory.Run(configureCallback =>
             {
