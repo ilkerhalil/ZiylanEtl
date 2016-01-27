@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.ServiceModel;
 
 namespace ZiylanEtl.Abstraction.ServiceContracts
@@ -10,6 +12,9 @@ namespace ZiylanEtl.Abstraction.ServiceContracts
 
         [OperationContract(IsOneWay = true)]
         void StartService();
+
+        IDictionary<string, object> ChildServiceParameters { get; }
+
 
     }
 }

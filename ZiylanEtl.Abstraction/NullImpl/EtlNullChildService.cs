@@ -3,15 +3,15 @@ using ZiylanEtl.Abstraction.ServiceContracts;
 
 namespace ZiylanEtl.Abstraction.NullImpl
 {
-    public class EtlNullChildService : IEtlChildService
+    public class EtlNullChildService : BaseEtlChildService
     {
-        public string ServiceName { get; } = "NULL Child Service";
+        public override string ServiceName { get; } = "NULL Child Service";
 
 
-        public void StartService()
+        public override void StartService()
         {
             throw new Exception();
-            Console.WriteLine("Null Service");
+            //Console.WriteLine("Null Service");
         }
     }
 }

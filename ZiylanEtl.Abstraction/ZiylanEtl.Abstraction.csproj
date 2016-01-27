@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="NullImpl\EtlNullChildService.cs" />
+    <Compile Include="ServiceContracts\BaseEtlChildService.cs" />
     <Compile Include="ServiceContracts\EtlServiceRequest.cs" />
     <Compile Include="ServiceContracts\IEtlChildService.cs" />
     <Compile Include="ServiceContracts\IEtlService.cs" />
