@@ -7,5 +7,10 @@ namespace ZiylanEtl.Abstraction.ServiceContracts
     {
         [DataMember]
         public string ServiceName { get; set; }
+
+        public override string ToString()
+        {
+            return $"ServiceName: {ServiceName}";
+        }
     }
 }
