@@ -49,7 +49,6 @@ namespace ZiylanEtl.InventChildService
 
                 CreateLog(DateTime.Now);
 
-                logContent = string.Empty;
                 foreach (var filter in filters)
                 {
                     var startNew = Stopwatch.StartNew();
