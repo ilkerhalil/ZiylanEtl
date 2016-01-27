@@ -13,7 +13,8 @@ namespace ServiceTest
         {
             EtlServiceClient client = new EtlServiceClient();
             var req = new EtlServiceRequest();
-            req.ServiceName = "NULL Child Service";
+            req.ServiceName = "INVENT";
+            Console.ReadKey();
             client.StartChildService(req);
         }
     }

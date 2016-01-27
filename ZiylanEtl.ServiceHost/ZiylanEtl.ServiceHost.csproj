@@ -124,6 +124,10 @@
       <Project>{c64bd767-5842-41a2-9164-55edd7190f9a}</Project>
       <Name>ZiylanEtl.EtlWebService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZiylanEtl.InventChildService\ZiylanEtl.InventChildService.csproj">
+      <Project>{3241c0cd-dfe9-4a59-9b48-0643e83656e7}</Project>
+      <Name>ZiylanEtl.InventChildService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

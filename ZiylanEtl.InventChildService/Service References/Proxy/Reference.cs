@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ZilyanEtl.InventWebServiceClient.Proxy {
+namespace ZiylanEtl.InventChildService.Proxy {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -18,11 +18,11 @@ namespace ZilyanEtl.InventWebServiceClient.Proxy {
         [System.ServiceModel.OperationContractAttribute(Action="urn:sap-com:document:sap:soap:functions:mc-style:ZRT_ENT_PERAPORT:ZrtEntPeraportR" +
             "equest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse1 ZrtEntPeraport(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportRequest request);
+        ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse1 ZrtEntPeraport(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="urn:sap-com:document:sap:soap:functions:mc-style:ZRT_ENT_PERAPORT:ZrtEntPeraportR" +
             "equest", ReplyAction="*")]
-        System.Threading.Tasks.Task<ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportRequest request);
+        System.Threading.Tasks.Task<ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportRequest request);
     }
     
     /// <remarks/>
@@ -2361,12 +2361,12 @@ namespace ZilyanEtl.InventWebServiceClient.Proxy {
     internal partial class ZrtEntPeraportRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style", Order=0)]
-        public ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraport ZrtEntPeraport;
+        public ZiylanEtl.InventChildService.Proxy.ZrtEntPeraport ZrtEntPeraport;
         
         public ZrtEntPeraportRequest() {
         }
         
-        public ZrtEntPeraportRequest(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraport ZrtEntPeraport) {
+        public ZrtEntPeraportRequest(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraport ZrtEntPeraport) {
             this.ZrtEntPeraport = ZrtEntPeraport;
         }
     }
@@ -2377,23 +2377,23 @@ namespace ZilyanEtl.InventWebServiceClient.Proxy {
     internal partial class ZrtEntPeraportResponse1 {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style", Order=0)]
-        public ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse ZrtEntPeraportResponse;
+        public ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse ZrtEntPeraportResponse;
         
         public ZrtEntPeraportResponse1() {
         }
         
-        public ZrtEntPeraportResponse1(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse ZrtEntPeraportResponse) {
+        public ZrtEntPeraportResponse1(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse ZrtEntPeraportResponse) {
             this.ZrtEntPeraportResponse = ZrtEntPeraportResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal interface ZRT_ENT_PERAPORTChannel : ZilyanEtl.InventWebServiceClient.Proxy.ZRT_ENT_PERAPORT, System.ServiceModel.IClientChannel {
+    internal interface ZRT_ENT_PERAPORTChannel : ZiylanEtl.InventChildService.Proxy.ZRT_ENT_PERAPORT, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    internal partial class ZRT_ENT_PERAPORTClient : System.ServiceModel.ClientBase<ZilyanEtl.InventWebServiceClient.Proxy.ZRT_ENT_PERAPORT>, ZilyanEtl.InventWebServiceClient.Proxy.ZRT_ENT_PERAPORT {
+    internal partial class ZRT_ENT_PERAPORTClient : System.ServiceModel.ClientBase<ZiylanEtl.InventChildService.Proxy.ZRT_ENT_PERAPORT>, ZiylanEtl.InventChildService.Proxy.ZRT_ENT_PERAPORT {
         
         public ZRT_ENT_PERAPORTClient() {
         }
@@ -2414,11 +2414,11 @@ namespace ZilyanEtl.InventWebServiceClient.Proxy {
                 base(binding, remoteAddress) {
         }
         
-        public ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse1 ZrtEntPeraport(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportRequest request) {
+        public ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse1 ZrtEntPeraport(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportRequest request) {
             return base.Channel.ZrtEntPeraport(request);
         }
         
-        public System.Threading.Tasks.Task<ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZilyanEtl.InventWebServiceClient.Proxy.ZrtEntPeraportRequest request) {
+        public System.Threading.Tasks.Task<ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZiylanEtl.InventChildService.Proxy.ZrtEntPeraportRequest request) {
             return base.Channel.ZrtEntPeraportAsync(request);
         }
     }
