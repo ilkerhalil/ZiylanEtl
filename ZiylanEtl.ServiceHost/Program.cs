@@ -1,15 +1,10 @@
-﻿using System;
-using System.Configuration;
-using System.ServiceModel.Dispatcher;
-using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
+﻿using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
-using Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection;
 using Microsoft.Practices.Unity;
 using Microsoft.Practices.Unity.Configuration;
 using Topshelf;
 using Topshelf.Unity;
-using Unity.Wcf;
 
 namespace ZiylanEtl.ServiceHost
 {
@@ -66,6 +61,7 @@ namespace ZiylanEtl.ServiceHost
             IConfigurationSource config = ConfigurationSourceFactory.Create();
             ExceptionPolicyFactory factory = new ExceptionPolicyFactory(config);
             ExceptionManager exceptionManager = factory.CreateManager();
+            ExceptionPolicy.SetExceptionManager(exceptionManager);
             return container;
         }
     }
