@@ -10,6 +10,7 @@ namespace ZiylanEtl.Abstraction.NullImpl
 
         public void StartService()
         {
+            throw new Exception();
             Console.WriteLine("Null Service");
         }
     }

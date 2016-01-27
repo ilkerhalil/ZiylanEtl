@@ -1,5 +1,8 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 using System.ServiceModel.Dispatcher;
+using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
+using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.EnterpriseLibrary.Logging.PolicyInjection;
 using Microsoft.Practices.Unity;
@@ -31,8 +34,6 @@ namespace ZiylanEtl.ServiceHost
 
         private static void Main()
         {
-
-
             UnityContainer = BuildUnityContainer();
             HostFactory.Run(configureCallback =>
             {
@@ -61,7 +62,10 @@ namespace ZiylanEtl.ServiceHost
             var container = new UnityContainer();
             container.LoadConfiguration();
             Logger.SetLogWriter(new LogWriterFactory().Create());
-            
+
+            IConfigurationSource config = ConfigurationSourceFactory.Create();
+            ExceptionPolicyFactory factory = new ExceptionPolicyFactory(config);
+            ExceptionManager exceptionManager = factory.CreateManager();
             return container;
         }
     }
