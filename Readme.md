@@ -1,9 +1,6 @@
-**
+							 - ZiylanEtl
 
- - ZiylanEtl
 
-**
+Ziylan için **SAP** üzerinden **PostDM** aracı ile yapılan ETL süreçleri için alternatif olarak geliştilmiş bir uygulamadır.
 
-Ziylan için **SAP** üzerinden **POSTDM** aracı ile yapılan ETL süreçleri için alternatif olarak geliştilmiş bir uygulamadır.
-
-Uygulama Windows Service tarafından Host edilen bir **WCF** servis olarak tasarlanmıştır.
+Uygulama,**PostDM** üzerinde bir adımla WS'in tetiklenerek **SAP üzerinde bulunan Web Servis**'den alınan verileri veritabanına yazması senaryosuna bağlı olarak Uygulama sunucusu üzerinde bir Windows Service tarafından host edilen bir **WCF** servis olarak tasarlanmıştır.
