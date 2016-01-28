@@ -16,9 +16,18 @@ namespace ZiylanEtl.EtlWebService
 
         public void StartChildService(EtlServiceRequest etlServiceRequest)
         {
-            throw new Exception();
-            var etlChildService = _services.Single(s => s.ServiceName == etlServiceRequest.ServiceName);
-            etlChildService.StartService();
+            try
+            {
+                throw new Exception();
+                var etlChildService = _services.Single(s => s.ServiceName == etlServiceRequest.ServiceName);
+                etlChildService.StartService();
+            }
+            catch (Exception exception)
+            {
+                exception.Data.Add("etlServiceRequest", etlServiceRequest);
+                throw;
+            }
+
         }
     }
 }
