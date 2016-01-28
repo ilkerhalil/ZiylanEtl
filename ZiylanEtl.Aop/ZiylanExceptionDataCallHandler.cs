@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Practices.Unity.InterceptionExtension;
+using ZiylanEtl.Abstraction.Exceptions;
 
 namespace ZiylanEtl.Aop
 {
@@ -13,8 +14,13 @@ namespace ZiylanEtl.Aop
                 throw new ArgumentNullException(nameof(getNext));
             var methodReturn = getNext()(input, getNext);
             if (methodReturn.Exception == null) return methodReturn;
+            var ziylanEtlException  = new ZiylanEtlException();
             for (var index = 0; index < input.Arguments.Count; ++index)
-                methodReturn.Exception.Data.Add(input.Arguments.GetParameterInfo(index).Name, input.Arguments[index]);
+            {
+                ziylanEtlException.Data.Add(input.Arguments.GetParameterInfo(index).Name, input.Arguments[index]);
+                methodReturn.Exception = ziylanEtlException;
+            }
+            
             return methodReturn;
         }
 

@@ -66,6 +66,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ZiylanEtl.Abstraction\ZiylanEtl.Abstraction.csproj">
+      <Project>{17EA62DA-BFA1-4B5C-AB89-2227C9150835}</Project>
+      <Name>ZiylanEtl.Abstraction</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
