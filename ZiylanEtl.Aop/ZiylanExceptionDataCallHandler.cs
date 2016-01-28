@@ -8,14 +8,13 @@ namespace ZiylanEtl.Aop
         public IMethodReturn Invoke(IMethodInvocation input, GetNextHandlerDelegate getNext)
         {
             if (input == null)
-                throw new ArgumentNullException("input");
+                throw new ArgumentNullException(nameof(input));
             if (getNext == null)
-                throw new ArgumentNullException("getNext");
+                throw new ArgumentNullException(nameof(getNext));
             var methodReturn = getNext()(input, getNext);
             if (methodReturn.Exception == null) return methodReturn;
             for (var index = 0; index < input.Arguments.Count; ++index)
                 methodReturn.Exception.Data.Add(input.Arguments.GetParameterInfo(index).Name, input.Arguments[index]);
-            //("Method Parameter :",getNext.Method.par);
             return methodReturn;
         }
 
