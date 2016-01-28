@@ -120,6 +120,10 @@
       <Project>{17ea62da-bfa1-4b5c-ab89-2227c9150835}</Project>
       <Name>ZiylanEtl.Abstraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZiylanEtl.Aop\ZiylanEtl.Aop.csproj">
+      <Project>{2e27fd9e-6afc-4af7-840e-7d3a9348520b}</Project>
+      <Name>ZiylanEtl.Aop</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZiylanEtl.EtlWebService\ZiylanEtl.EtlWebService.csproj">
       <Project>{c64bd767-5842-41a2-9164-55edd7190f9a}</Project>
       <Name>ZiylanEtl.EtlWebService</Name>
