@@ -27,7 +27,7 @@ namespace ZiylanEtl.PeraportChildService
             Password = "Floflo+Floflo+1";
         }
 
-
+        public IDictionary<string, object> ChildServiceParameters { get; }
         public override string ServiceName { get; } = "Peraport ETL Service";
 
         public override void StartService()
@@ -54,6 +54,6 @@ namespace ZiylanEtl.PeraportChildService
             if (Password.IsNullAndWhiteSpace()) throw new SecurityException("Password boş olamaz");
         }
 
-        public IDictionary<string, object> ChildServiceParameters { get; }
+        
     }
 }
