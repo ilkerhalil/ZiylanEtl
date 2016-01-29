@@ -18,7 +18,6 @@ namespace ZiylanEtl.EtlWebService
         {
             try
             {
-                throw new Exception();
                 var etlChildService = _services.Single(s => s.ServiceName == etlServiceRequest.ServiceName);
                 etlChildService.StartService();
             }
@@ -27,7 +26,6 @@ namespace ZiylanEtl.EtlWebService
                 exception.Data.Add("etlServiceRequest", etlServiceRequest);
                 throw;
             }
-
         }
     }
 }

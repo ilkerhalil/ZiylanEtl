@@ -141,11 +141,146 @@
     </xsd:schema>
     <xsd:schema xmlns:n0="urn:sap-com:document:sap:rfc:functions" attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:soap:functions:mc-style">
       <xsd:import namespace="urn:sap-com:document:sap:rfc:functions" />
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char25">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="25" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char60">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="60" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char8">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="cuky5">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="curr11.2">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="11" />
+          <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="curr15.2">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="decimal5.0">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="5" />
+          <xsd:fractionDigits value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="lang">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric5">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ZentLfa1">
+        <xsd:sequence>
+          <xsd:element name="Lifnr" type="tns:char10" />
+          <xsd:element name="Bukrs" type="tns:char4" />
+          <xsd:element name="Name1" type="n0:char30" />
+          <xsd:element name="Ktokk" type="tns:char4" />
+          <xsd:element name="Land1" type="n0:char3" />
+          <xsd:element name="Txt30" type="tns:char30" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZentT001">
+        <xsd:sequence>
+          <xsd:element name="Burks" type="tns:char4" />
+          <xsd:element name="Butxt" type="tns:char25" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T023t">
+        <xsd:sequence>
+          <xsd:element name="Mandt" type="n0:clnt3" />
+          <xsd:element name="Spras" type="tns:lang" />
+          <xsd:element name="Matkl" type="n0:char9" />
+          <xsd:element name="Wgbez" type="tns:char20" />
+          <xsd:element name="Wgbez60" type="tns:char60" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T134t">
+        <xsd:sequence>
+          <xsd:element name="Mandt" type="n0:clnt3" />
+          <xsd:element name="Spras" type="tns:lang" />
+          <xsd:element name="Mtart" type="tns:char4" />
+          <xsd:element name="Mtbez" type="tns:char25" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="T6wst">
+        <xsd:sequence>
+          <xsd:element name="Mandt" type="n0:clnt3" />
+          <xsd:element name="Saiso" type="n0:char4" />
+          <xsd:element name="Spras" type="tns:lang" />
+          <xsd:element name="Vtext" type="tns:char20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="WrfBrandsT">
+        <xsd:sequence>
+          <xsd:element name="Mandt" type="n0:clnt3" />
+          <xsd:element name="BrandId" type="n0:char4" />
+          <xsd:element name="Language" type="tns:lang" />
+          <xsd:element name="BrandDescr" type="tns:char30" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="ZinventAsorti">
         <xsd:sequence>
           <xsd:element name="Mandt" type="n0:clnt3" />
           <xsd:element name="Erdat" type="n0:date10" />
           <xsd:element name="Idnrk" type="n0:char18" />
+          <xsd:element name="Stlnr" type="tns:char8" />
           <xsd:element name="Matnr" type="n0:char18" />
           <xsd:element name="Menge" type="n0:quantum13.3" />
           <xsd:element name="Zzkolitipi" type="n0:char2" />
@@ -229,6 +364,26 @@
           <xsd:element name="Bwscl" type="n0:char1" />
         </xsd:sequence>
       </xsd:complexType>
+      <xsd:complexType name="ZinventSas">
+        <xsd:sequence>
+          <xsd:element name="Mandt" type="n0:clnt3" />
+          <xsd:element name="Erdat" type="n0:date10" />
+          <xsd:element name="Ebeln" type="n0:char10" />
+          <xsd:element name="Ebelp" type="tns:numeric5" />
+          <xsd:element name="Loekz" type="tns:char1" />
+          <xsd:element name="Zzsipturu" type="tns:numeric2" />
+          <xsd:element name="Lifnr" type="tns:char10" />
+          <xsd:element name="Matnr" type="n0:char18" />
+          <xsd:element name="Werks" type="n0:char4" />
+          <xsd:element name="Menge" type="n0:quantum13.3" />
+          <xsd:element name="Meins" type="n0:unit3" />
+          <xsd:element name="Netpr" type="tns:curr11.2" />
+          <xsd:element name="Peinh" type="tns:decimal5.0" />
+          <xsd:element name="Netwr" type="tns:curr15.2" />
+          <xsd:element name="Waers" type="tns:cuky5" />
+          <xsd:element name="Inco1" type="tns:char3" />
+        </xsd:sequence>
+      </xsd:complexType>
       <xsd:complexType name="ZinventStok">
         <xsd:sequence>
           <xsd:element name="Mandt" type="n0:clnt3" />
@@ -236,6 +391,7 @@
           <xsd:element name="Matnr" type="n0:char18" />
           <xsd:element name="Werks" type="n0:char4" />
           <xsd:element name="Lgort" type="n0:char4" />
+          <xsd:element name="Labst" type="n0:quantum13.3" />
           <xsd:element name="Atp" type="n0:quantum13.3" />
           <xsd:element name="Aciks" type="n0:quantum13.3" />
         </xsd:sequence>
@@ -247,6 +403,7 @@
           <xsd:element name="Matnr" type="n0:char18" />
           <xsd:element name="Werks" type="n0:char4" />
           <xsd:element name="Lgort" type="n0:char4" />
+          <xsd:element name="Labst" type="n0:quantum13.3" />
           <xsd:element name="Atp" type="n0:quantum13.3" />
           <xsd:element name="Aciks" type="n0:quantum13.3" />
         </xsd:sequence>
@@ -257,6 +414,7 @@
           <xsd:element name="Erdat" type="n0:date10" />
           <xsd:element name="Vbeln" type="n0:char10" />
           <xsd:element name="Posnr" type="n0:numeric6" />
+          <xsd:element name="Manuel" type="tns:char1" />
           <xsd:element name="Ebeln" type="n0:char10" />
           <xsd:element name="Cpudt" type="n0:date10" />
           <xsd:element name="Matnr" type="n0:char18" />
@@ -264,6 +422,9 @@
           <xsd:element name="Meins" type="n0:unit3" />
           <xsd:element name="Werks" type="n0:char4" />
           <xsd:element name="Lgort" type="n0:char4" />
+          <xsd:element name="MatnrAs" type="n0:char18" />
+          <xsd:element name="MengeAs" type="n0:quantum13.3" />
+          <xsd:element name="MeinsAs" type="n0:unit3" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="ZinventTrn">
@@ -298,6 +459,37 @@
           <xsd:element name="Sort2" type="n0:char20" />
           <xsd:element name="McCity1" type="n0:char25" />
           <xsd:element name="Verfl" type="n0:quantum6.0" />
+          <xsd:element name="Bukrs" type="tns:char4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZentLfa1">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZentLfa1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZentT001">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZentT001" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfT023t">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:T023t" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfT134t">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:T134t" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfT6wst">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:T6wst" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfWrfBrandsT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:WrfBrandsT" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="TableOfZinventAsorti">
@@ -318,6 +510,11 @@
       <xsd:complexType name="TableOfZinventMlz">
         <xsd:sequence>
           <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZinventMlz" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TableOfZinventSas">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZinventSas" />
         </xsd:sequence>
       </xsd:complexType>
       <xsd:complexType name="TableOfZinventStok">
@@ -358,25 +555,46 @@
             <xsd:element minOccurs="0" name="C8" type="n0:char1" />
             <xsd:element minOccurs="0" name="C9" type="n0:char1" />
             <xsd:element name="Erdat" type="n0:char10" />
+            <xsd:element name="GtLfa1" type="tns:TableOfZentLfa1" />
+            <xsd:element name="GtT001" type="tns:TableOfZentT001" />
+            <xsd:element name="GtT023t" type="tns:TableOfT023t" />
+            <xsd:element name="GtT134t" type="tns:TableOfT134t" />
+            <xsd:element name="GtT6wst" type="tns:TableOfT6wst" />
+            <xsd:element name="GtWrfBrandsT" type="tns:TableOfWrfBrandsT" />
             <xsd:element name="GtZinventAsorti" type="tns:TableOfZinventAsorti" />
             <xsd:element name="GtZinventFyt" type="tns:TableOfZinventFyt" />
             <xsd:element name="GtZinventHrk" type="tns:TableOfZinventHrk" />
             <xsd:element name="GtZinventMlz" type="tns:TableOfZinventMlz" />
+            <xsd:element name="GtZinventSas" type="tns:TableOfZinventSas" />
             <xsd:element name="GtZinventStok" type="tns:TableOfZinventStok" />
             <xsd:element name="GtZinventStokA" type="tns:TableOfZinventStokA" />
             <xsd:element name="GtZinventTes" type="tns:TableOfZinventTes" />
             <xsd:element name="GtZinventTrn" type="tns:TableOfZinventTrn" />
             <xsd:element name="GtZinventUy" type="tns:TableOfZinventUy" />
+            <xsd:element name="c10" type="n0:char1" />
+            <xsd:element name="c11" type="n0:char1" />
+            <xsd:element name="c12" type="n0:char1" />
+            <xsd:element name="c13" type="n0:char1" />
+            <xsd:element name="c14" type="n0:char1" />
+            <xsd:element name="c15" type="n0:char1" />
+            <xsd:element name="c16" type="n0:char1" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="ZrtEntPeraportResponse">
         <xsd:complexType>
           <xsd:sequence>
+            <xsd:element name="GtLfa1" type="tns:TableOfZentLfa1" />
+            <xsd:element name="GtT001" type="tns:TableOfZentT001" />
+            <xsd:element name="GtT023t" type="tns:TableOfT023t" />
+            <xsd:element name="GtT134t" type="tns:TableOfT134t" />
+            <xsd:element name="GtT6wst" type="tns:TableOfT6wst" />
+            <xsd:element name="GtWrfBrandsT" type="tns:TableOfWrfBrandsT" />
             <xsd:element name="GtZinventAsorti" type="tns:TableOfZinventAsorti" />
             <xsd:element name="GtZinventFyt" type="tns:TableOfZinventFyt" />
             <xsd:element name="GtZinventHrk" type="tns:TableOfZinventHrk" />
             <xsd:element name="GtZinventMlz" type="tns:TableOfZinventMlz" />
+            <xsd:element name="GtZinventSas" type="tns:TableOfZinventSas" />
             <xsd:element name="GtZinventStok" type="tns:TableOfZinventStok" />
             <xsd:element name="GtZinventStokA" type="tns:TableOfZinventStokA" />
             <xsd:element name="GtZinventTes" type="tns:TableOfZinventTes" />

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d5224e96-a377-41c7-8047-61d9841f042d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1f289542-ac19-46b2-ab73-ebf40de51c83" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
-    <GenerateInternalTypes>true</GenerateInternalTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
     <GenerateMessageContracts>true</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings />
@@ -19,10 +19,10 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://sapretail.ziylan.tur:8001/sap/bc/srt/wsdl/srvc_D89D67153CD71ED5AFDE73650C205111/wsdl11/allinone/ws_policy/document?sap-client=300" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://172.23.23.32:8001/sap/bc/srt/wsdl/srvc_D89D67153CD71ED5B1C41B9E67C6B111/wsdl11/allinone/ws_policy/document?sap-client=300" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="document.wsdl" MetadataType="Wsdl" ID="36f83a40-8884-4a4c-a136-c86f4bdb762a" SourceId="1" SourceUrl="http://sapretail.ziylan.tur:8001/sap/bc/srt/wsdl/srvc_D89D67153CD71ED5AFDE73650C205111/wsdl11/allinone/ws_policy/document?sap-client=300" />
+    <MetadataFile FileName="document.wsdl" MetadataType="Wsdl" ID="1b3b75af-20b2-4164-b4d8-5c4d95610c11" SourceId="1" SourceUrl="http://172.23.23.32:8001/sap/bc/srt/wsdl/srvc_D89D67153CD71ED5B1C41B9E67C6B111/wsdl11/allinone/ws_policy/document?sap-client=300" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

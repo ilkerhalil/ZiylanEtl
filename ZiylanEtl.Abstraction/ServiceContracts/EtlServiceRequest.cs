@@ -1,8 +1,10 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
 namespace ZiylanEtl.Abstraction.ServiceContracts
 {
     [DataContract]
+    [Serializable]
     public class EtlServiceRequest
     {
         [DataMember]

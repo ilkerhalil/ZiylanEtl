@@ -65,6 +65,7 @@ namespace ZiylanEtl.InventChildService
                     {
                         exceptionMessage = $"<li>Exception Message {ex}\n</li>";
                     }
+
                     var dosyaAdi =
                         $"Filtre : {filter} \n Test Zamanı : {DateTime.Now.ToLongDateString() + ":" + DateTime.Now.ToLongTimeString()}";
 
@@ -85,7 +86,6 @@ namespace ZiylanEtl.InventChildService
                 var toplamGecenZaman = toplamZaman.Elapsed;
                 SaveLog(DateTime.Now, toplamGecenZaman);
                 toplamZaman.Stop();
-
             }
         }
 
@@ -101,7 +101,10 @@ namespace ZiylanEtl.InventChildService
         {
             var zrnEntPeraPort = new ZrtEntPeraport
             {
-                Erdat = string.IsNullOrWhiteSpace(this.Erdat) ? string.Format(DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd")) : this.Erdat,
+                Erdat =
+                    string.IsNullOrWhiteSpace(this.Erdat)
+                        ? string.Format(DateTime.Now.AddDays(-1).ToString("yyyy-MM-dd"))
+                        : this.Erdat,
                 C1 = "",
                 C2 = "",
                 C3 = "",
@@ -111,15 +114,15 @@ namespace ZiylanEtl.InventChildService
                 C7 = "",
                 C8 = "",
                 C9 = "",
-                GtZinventHrk = new[] { new ZinventHrk(), },
-                GtZinventAsorti = new[] { new ZinventAsorti(), },
-                GtZinventFyt = new[] { new ZinventFyt(), },
-                GtZinventMlz = new[] { new ZinventMlz(), },
-                GtZinventStok = new[] { new ZinventStok(), },
-                GtZinventStokA = new[] { new ZinventStokA(), },
-                GtZinventTes = new[] { new ZinventTes(), },
-                GtZinventTrn = new[] { new ZinventTrn(), },
-                GtZinventUy = new[] { new ZinventUy(), }
+                GtZinventHrk = new[] {new ZinventHrk(),},
+                GtZinventAsorti = new[] {new ZinventAsorti(),},
+                GtZinventFyt = new[] {new ZinventFyt(),},
+                GtZinventMlz = new[] {new ZinventMlz(),},
+                GtZinventStok = new[] {new ZinventStok(),},
+                GtZinventStokA = new[] {new ZinventStokA(),},
+                GtZinventTes = new[] {new ZinventTes(),},
+                GtZinventTrn = new[] {new ZinventTrn(),},
+                GtZinventUy = new[] {new ZinventUy(),}
             };
 
             var property = zrnEntPeraPort.GetType().GetProperties().Single(w => w.Name == filter);
