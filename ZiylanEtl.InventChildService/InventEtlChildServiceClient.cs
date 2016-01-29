@@ -4,6 +4,7 @@ using System.Linq;
 using System.Diagnostics;
 using System.Security;
 using System.Text;
+using ZiylanEtl.Abstraction.Helper;
 using ZiylanEtl.Abstraction.ServiceContracts;
 using ZiylanEtl.InventChildService.Proxy;
 

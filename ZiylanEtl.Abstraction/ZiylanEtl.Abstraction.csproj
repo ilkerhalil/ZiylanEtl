@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Exceptions\ZiylanEtlException.cs" />
+    <Compile Include="Helper\Extensions.cs" />
     <Compile Include="NullImpl\EtlNullChildService.cs" />
     <Compile Include="ServiceContracts\BaseEtlChildService.cs" />
     <Compile Include="ServiceContracts\EtlServiceRequest.cs" />
