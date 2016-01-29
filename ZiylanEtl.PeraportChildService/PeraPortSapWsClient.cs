@@ -5,10 +5,12 @@ using System.IO;
 using System.Linq;
 using System.Security;
 using System.Text;
+using AutoMapper;
 using ZiylanEtl.Abstraction.Helper;
 using ZiylanEtl.Abstraction.ServiceContracts;
 using ZiylanEtl.PeraportChildService.ServiceProxy;
 using ZiylanEtl.DataAccess;
+using ZiylanEtl.PeraportChildService.Dto;
 
 namespace ZiylanEtl.PeraportChildService
 {
@@ -24,12 +26,14 @@ namespace ZiylanEtl.PeraportChildService
         public string Erdat { get; set; }
 
         private StringBuilder _builder;
-        
+        private readonly IMapper _mapperInit;
+
         public PeraPortSapWsClient(IDataAccess dataAccess)
     : base()
         {
             _dataAccess = dataAccess;
             _zRtEntPeraportClient = new ZRT_ENT_PERAPORTClient("binding_SOAP12");
+            _mapperInit = MapperInit();
         }
 
         public IDictionary<string, object> ChildServiceParameters { get; }
@@ -132,22 +136,22 @@ namespace ZiylanEtl.PeraportChildService
                 c14 = "",
                 c15 = "",
                 c16 = "",
-                GtZinventHrk = new[] {new ZinventHrk(),},
-                GtZinventAsorti = new[] {new ZinventAsorti(),},
-                GtZinventFyt = new[] {new ZinventFyt(),},
-                GtZinventMlz = new[] {new ZinventMlz(),},
-                GtZinventStok = new[] {new ZinventStok(),},
-                GtZinventStokA = new[] {new ZinventStokA(),},
-                GtZinventTes = new[] {new ZinventTes(),},
-                GtZinventTrn = new[] {new ZinventTrn(),},
-                GtZinventUy = new[] {new ZinventUy(),},
-                GtT6wst = new[] {new T6wst(),},
-                GtT134t = new[] {new T134t(),},
-                GtLfa1 = new[] {new ZentLfa1(),},
-                GtT001 = new[] {new ZentT001(),},
-                GtT023t = new[] {new T023t(),},
-                GtWrfBrandsT = new[] {new WrfBrandsT(),},
-                GtZinventSas = new[] {new ZinventSas(),}
+                GtZinventHrk = new[] { new ZinventHrk(), },
+                GtZinventAsorti = new[] { new ZinventAsorti(), },
+                GtZinventFyt = new[] { new ZinventFyt(), },
+                GtZinventMlz = new[] { new ZinventMlz(), },
+                GtZinventStok = new[] { new ZinventStok(), },
+                GtZinventStokA = new[] { new ZinventStokA(), },
+                GtZinventTes = new[] { new ZinventTes(), },
+                GtZinventTrn = new[] { new ZinventTrn(), },
+                GtZinventUy = new[] { new ZinventUy(), },
+                GtT6wst = new[] { new T6wst(), },
+                GtT134t = new[] { new T134t(), },
+                GtLfa1 = new[] { new ZentLfa1(), },
+                GtT001 = new[] { new ZentT001(), },
+                GtT023t = new[] { new T023t(), },
+                GtWrfBrandsT = new[] { new WrfBrandsT(), },
+                GtZinventSas = new[] { new ZinventSas(), }
             };
 
             var property = zrnEntPeraPort.GetType().GetProperties().Single(w => w.Name == filter);
@@ -181,5 +185,30 @@ namespace ZiylanEtl.PeraportChildService
             _builder.AppendLine("</body></html>");
             File.WriteAllText(Path.GetRandomFileName() + ".txt", _builder.ToString());
         }
+        private static IMapper MapperInit()
+        {
+            var mapperConfiguration = new MapperConfiguration(con =>
+            {
+                con.CreateMap<T023t, T023tDto>();
+                con.CreateMap<T134t, T134tDto>();
+                con.CreateMap<T6wst, T6wstDto>();
+                con.CreateMap<WrfBrandsT, WrfBrandsTDto>();
+                con.CreateMap<ZentLfa1, ZentLfa1Dto>();
+                con.CreateMap<ZentT001, ZentT001Dto>();
+                con.CreateMap<ZinventAsorti, ZinventAsortiDto>();
+                con.CreateMap<ZinventFyt, ZinventFytDto>();
+                con.CreateMap<ZinventHrk, ZinventHrkDto>();
+                con.CreateMap<ZinventMlz, ZinventMlzDto>();
+                con.CreateMap<ZinventSas, ZinventSasDto>();
+                con.CreateMap<ZinventStok, ZinventStokDto>();
+                con.CreateMap<ZinventStokA, ZinventStokADto>();
+                con.CreateMap<ZinventTes, ZinventTesDto>();
+                con.CreateMap<ZinventTrn, ZinventTrnDto>();
+                con.CreateMap<ZinventUy, ZinventUyDto>();
+            });
+            return mapperConfiguration.CreateMapper();
+        }
+
+
     }
 }
