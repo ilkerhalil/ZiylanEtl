@@ -132,6 +132,10 @@
       <Project>{3241c0cd-dfe9-4a59-9b48-0643e83656e7}</Project>
       <Name>ZiylanEtl.InventChildService</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZiylanEtl.PeraportChildService\ZiylanEtl.PeraportChildService.csproj">
+      <Project>{79ff7790-99f1-4a4c-929f-82fe73fe30a4}</Project>
+      <Name>ZiylanEtl.PeraportChildService</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

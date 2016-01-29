@@ -15,7 +15,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
     [System.ServiceModel.ServiceContractAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style", ConfigurationName="ServiceProxy.ZRT_ENT_PERAPORT")]
     internal interface ZRT_ENT_PERAPORT {
         
-        // CODEGEN: Generating message contract since the operation ZrtEntPeraport is neither RPC nor document wrapped.
         [System.ServiceModel.OperationContractAttribute(Action="urn:sap-com:document:sap:soap:functions:mc-style:ZRT_ENT_PERAPORT:ZrtEntPeraportR" +
             "equest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
@@ -3478,7 +3477,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     internal partial class ZrtEntPeraportRequest {
         
@@ -3495,7 +3493,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     internal partial class ZrtEntPeraportResponse1 {
         
@@ -3537,27 +3534,12 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
                 base(binding, remoteAddress) {
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1 ZiylanEtl.PeraportChildService.ServiceProxy.ZRT_ENT_PERAPORT.ZrtEntPeraport(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest request) {
+        public ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1 ZrtEntPeraport(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest request) {
             return base.Channel.ZrtEntPeraport(request);
         }
         
-        public ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse ZrtEntPeraport(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraport ZrtEntPeraport1) {
-            ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest inValue = new ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest();
-            inValue.ZrtEntPeraport = ZrtEntPeraport1;
-            ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1 retVal = ((ZiylanEtl.PeraportChildService.ServiceProxy.ZRT_ENT_PERAPORT)(this)).ZrtEntPeraport(inValue);
-            return retVal.ZrtEntPeraportResponse;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1> ZiylanEtl.PeraportChildService.ServiceProxy.ZRT_ENT_PERAPORT.ZrtEntPeraportAsync(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest request) {
+        public System.Threading.Tasks.Task<ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest request) {
             return base.Channel.ZrtEntPeraportAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1> ZrtEntPeraportAsync(ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraport ZrtEntPeraport) {
-            ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest inValue = new ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportRequest();
-            inValue.ZrtEntPeraport = ZrtEntPeraport;
-            return ((ZiylanEtl.PeraportChildService.ServiceProxy.ZRT_ENT_PERAPORT)(this)).ZrtEntPeraportAsync(inValue);
         }
     }
 }

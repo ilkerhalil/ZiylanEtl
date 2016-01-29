@@ -61,9 +61,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Service References\ServiceProxy\document.wsdl" />
-    <None Include="Service References\ServiceProxy\ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Service References\ServiceProxy\ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

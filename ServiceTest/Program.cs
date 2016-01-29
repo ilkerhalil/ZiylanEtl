@@ -13,7 +13,7 @@ namespace ServiceTest
         {
             EtlServiceClient client = new EtlServiceClient();
             var req = new EtlServiceRequest();
-            req.ServiceName = "INVENT";
+            req.ServiceName = "Peraport ETL Service";
             Console.ReadKey();
             client.StartChildService(req);
         }
