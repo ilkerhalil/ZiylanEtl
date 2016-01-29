@@ -30,6 +30,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -37,6 +42,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dto\DtoSet.cs" />
+    <Compile Include="Dto\ZinventUyDto.cs" />
+    <Compile Include="Dto\ZinventStokADto.cs" />
+    <Compile Include="Dto\ZinventStokDto.cs" />
+    <Compile Include="Dto\ZinventMlzDto.cs" />
+    <Compile Include="Dto\T023tDto.cs" />
+    <Compile Include="Dto\T134tDto.cs" />
+    <Compile Include="Dto\T6wstDto.cs" />
+    <Compile Include="Dto\WrfBrandsTDto.cs" />
+    <Compile Include="Dto\ZentLfa1Dto.cs" />
+    <Compile Include="Dto\ZentT001Dto.cs" />
+    <Compile Include="Dto\ZinventAsortiDto.cs" />
+    <Compile Include="Dto\ZinventFytDto.cs" />
+    <Compile Include="Dto\ZinventHrkDto.cs" />
+    <Compile Include="Dto\ZinventSasDto.cs" />
+    <Compile Include="Dto\ZinventTesDto.cs" />
+    <Compile Include="Dto\ZinventTrnDto.cs" />
     <Compile Include="PeraPortSapWsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceProxy\Reference.cs">
@@ -60,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="packages.config" />
     <None Include="Service References\ServiceProxy\document.wsdl" />
     <None Include="Service References\ServiceProxy\ZiylanEtl.PeraportChildService.ServiceProxy.ZrtEntPeraportResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
