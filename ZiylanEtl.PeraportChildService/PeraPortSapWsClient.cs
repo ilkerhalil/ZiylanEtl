@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security;
 using System.Text;
 using AutoMapper;
@@ -16,8 +18,17 @@ namespace ZiylanEtl.PeraportChildService
 {
     public class PeraPortSapWsClient : BaseEtlChildService
     {
+
+        #region Fields
+
+        private StringBuilder _builder;
         private readonly IDataAccess _dataAccess;
         private readonly ZRT_ENT_PERAPORTClient _zRtEntPeraportClient;
+        private readonly IMapper _mapperInit;
+
+        #endregion
+
+        #region Properties
 
         public string Username { get; set; }
 
@@ -25,79 +36,13 @@ namespace ZiylanEtl.PeraportChildService
 
         public string Erdat { get; set; }
 
-        private StringBuilder _builder;
-        private readonly IMapper _mapperInit;
-
-        public PeraPortSapWsClient(IDataAccess dataAccess)
-    : base()
-        {
-            _dataAccess = dataAccess;
-            _zRtEntPeraportClient = new ZRT_ENT_PERAPORTClient("binding_SOAP12");
-            _mapperInit = MapperInit();
-        }
-
         public IDictionary<string, object> ChildServiceParameters { get; }
+
         public override string ServiceName { get; } = "Peraport ETL Service";
 
-        public override void StartService()
-        {
-            ValidateServiceParameter();
-            InitWebServiceClient();
+        #endregion
 
-            var toplamZaman = Stopwatch.StartNew();
-            ZrtEntPeraportResponse1 response = null;
-
-            var filters = new[]
-            {
-                "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "c10", "c11","c12", "c13", "c14", "c15", "c16"
-            };
-
-            CreateLog(DateTime.Now);
-
-            foreach (var filter in filters)
-            {
-                var startNew = Stopwatch.StartNew();
-                var exceptionMessage = string.Empty;
-                try
-                {
-                    var request = CreateRequest(filter);
-                    response = _zRtEntPeraportClient.ZrtEntPeraport(request);
-                }
-                catch (Exception ex)
-                {
-                    exceptionMessage = $"<li>Exception Message {ex}\n</li>";
-                }
-
-                var dosyaAdi =
-                    $"Filtre : {filter} \n Test Zamanı : {DateTime.Now.ToLongDateString() + ":" + DateTime.Now.ToLongTimeString()}";
-
-                var gecenZaman = startNew.Elapsed;
-                startNew.Stop();
-                var dolukoleksiyonlar = string.Empty;
-                if (string.IsNullOrWhiteSpace(exceptionMessage))
-                {
-                    dolukoleksiyonlar = SerializeNonEmptyCollections(response);
-                }
-
-                var logContent = string.Concat(dosyaAdi, Environment.NewLine, exceptionMessage, Environment.NewLine,
-                    gecenZaman, Environment.NewLine, dolukoleksiyonlar);
-
-                AppendLog(logContent);
-            }
-
-            var toplamGecenZaman = toplamZaman.Elapsed;
-            SaveLog(DateTime.Now, toplamGecenZaman);
-            toplamZaman.Stop();
-            //Datayı map edeceğiz
-            //Datayı insert edeceğiz
-        }
-
-        private void InitWebServiceClient()
-        {
-            _zRtEntPeraportClient.ClientCredentials.UserName.UserName = Username;
-            _zRtEntPeraportClient.ClientCredentials.UserName.Password = Password;
-        }
-
+        #region PrivateMethods
         private void ValidateServiceParameter()
         {
             if (Username.IsNullAndWhiteSpace()) throw new SecurityException("Username boş olamaz");
@@ -185,6 +130,7 @@ namespace ZiylanEtl.PeraportChildService
             _builder.AppendLine("</body></html>");
             File.WriteAllText(Path.GetRandomFileName() + ".txt", _builder.ToString());
         }
+
         private static IMapper MapperInit()
         {
             var mapperConfiguration = new MapperConfiguration(con =>
@@ -208,6 +154,99 @@ namespace ZiylanEtl.PeraportChildService
             });
             return mapperConfiguration.CreateMapper();
         }
+
+        private void InitWebServiceClient()
+        {
+            _zRtEntPeraportClient.ClientCredentials.UserName.UserName = Username;
+            _zRtEntPeraportClient.ClientCredentials.UserName.Password = Password;
+        }
+
+
+        private void InsertValues(DtoSet dtoSet)
+        {
+            foreach (var dto in dtoSet.GetType().GetProperties(BindingFlags.DeclaredOnly | BindingFlags.Public))
+            {
+                var query = WriteSqlQuery(dto.PropertyType.GetGenericArguments()[0]);
+                _dataAccess.ExecuteQuery(query, CommandType.Text, null);
+
+            }
+
+        }
+
+
+
+        private string WriteSqlQuery(Type type)
+        {
+            var valuesVb = string.Join(",", type.GetProperties().Select(s => $"@ {s.Name}"));
+            return $"insert into {type.Name.Replace("dto", "")} values ({valuesVb})";
+        }
+
+        #endregion
+
+        public PeraPortSapWsClient(IDataAccess dataAccess)
+                : base()
+        {
+            _dataAccess = dataAccess;
+            _zRtEntPeraportClient = new ZRT_ENT_PERAPORTClient("binding_SOAP12");
+            _mapperInit = MapperInit();
+        }
+
+        public override void StartService()
+        {
+            ValidateServiceParameter();
+            InitWebServiceClient();
+
+            var toplamZaman = Stopwatch.StartNew();
+            ZrtEntPeraportResponse1 response = null;
+
+            var filters = new[]
+            {
+                "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "c10", "c11","c12", "c13", "c14", "c15", "c16"
+            };
+
+            CreateLog(DateTime.Now);
+
+            foreach (var filter in filters)
+            {
+                var startNew = Stopwatch.StartNew();
+                var exceptionMessage = string.Empty;
+                try
+                {
+                    var request = CreateRequest(filter);
+                    response = _zRtEntPeraportClient.ZrtEntPeraport(request);
+                }
+                catch (Exception ex)
+                {
+                    exceptionMessage = $"<li>Exception Message {ex}\n</li>";
+                }
+
+                var dosyaAdi =
+                    $"Filtre : {filter} \n Test Zamanı : {DateTime.Now.ToLongDateString() + ":" + DateTime.Now.ToLongTimeString()}";
+
+                var gecenZaman = startNew.Elapsed;
+                startNew.Stop();
+                var dolukoleksiyonlar = string.Empty;
+                if (string.IsNullOrWhiteSpace(exceptionMessage))
+                {
+                    dolukoleksiyonlar = SerializeNonEmptyCollections(response);
+                }
+
+                var logContent = string.Concat(dosyaAdi, Environment.NewLine, exceptionMessage, Environment.NewLine,
+                    gecenZaman, Environment.NewLine, dolukoleksiyonlar);
+
+                AppendLog(logContent);
+            }
+
+            var toplamGecenZaman = toplamZaman.Elapsed;
+            SaveLog(DateTime.Now, toplamGecenZaman);
+            toplamZaman.Stop();
+            //Datayı map edeceğiz
+            //Datayı insert edeceğiz
+        }
+
+
+
+
 
 
     }
