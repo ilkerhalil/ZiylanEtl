@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Security;
 using System.Text;
 using AutoMapper;
@@ -17,8 +19,17 @@ namespace ZiylanEtl.PeraportChildService
     /* Peraport ETL Webservice Client */
     public class PeraPortSapWsClient : BaseEtlChildService
     {
+
+        #region Fields
+
+        private StringBuilder _builder;
         private readonly IDataAccess _dataAccess;
         private readonly ZRT_ENT_PERAPORTClient _zRtEntPeraportClient;
+        private readonly IMapper _mapperInit;
+
+        #endregion
+
+        #region Properties
 
         public string Username { get; set; }
 
@@ -26,24 +37,11 @@ namespace ZiylanEtl.PeraportChildService
 
         public string Erdat { get; set; }
 
-        private StringBuilder _builder;
-        private readonly IMapper _mapperInit;
-
-        public PeraPortSapWsClient(IDataAccess dataAccess)
-    : base()
-        {
-            _dataAccess = dataAccess;
-            _zRtEntPeraportClient = new ZRT_ENT_PERAPORTClient("binding_SOAP12");
-            _mapperInit = MapperInit();
-        }
-
         public IDictionary<string, object> ChildServiceParameters { get; }
+
         public override string ServiceName { get; } = "Peraport ETL Service";
 
-        public override void StartService()
-        {
-            ValidateServiceParameter();
-            InitWebServiceClient();
+        #endregion
 
             var toplamZaman = Stopwatch.StartNew();
             ZrtEntPeraportResponse1 response = null;
@@ -99,6 +97,7 @@ namespace ZiylanEtl.PeraportChildService
             _zRtEntPeraportClient.ClientCredentials.UserName.Password = Password;
         }
 
+        #region PrivateMethods
         private void ValidateServiceParameter()
         {
             if (Username.IsNullAndWhiteSpace()) throw new SecurityException("Username boş olamaz");
@@ -186,6 +185,7 @@ namespace ZiylanEtl.PeraportChildService
             _builder.AppendLine("</body></html>");
             File.WriteAllText(Path.GetRandomFileName() + ".txt", _builder.ToString());
         }
+
         private static IMapper MapperInit()
         {
             var mapperConfiguration = new MapperConfiguration(con =>
@@ -209,5 +209,7 @@ namespace ZiylanEtl.PeraportChildService
             });
             return mapperConfiguration.CreateMapper();
         }
+
+
     }
 }
