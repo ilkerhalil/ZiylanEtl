@@ -60,6 +60,7 @@
     <Compile Include="Dto\ZinventSasDto.cs" />
     <Compile Include="Dto\ZinventTesDto.cs" />
     <Compile Include="Dto\ZinventTrnDto.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="PeraPortSapWsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Service References\ServiceProxy\Reference.cs">
