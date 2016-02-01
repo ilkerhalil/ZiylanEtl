@@ -7,6 +7,8 @@
         /// <remarks/>
         public string Erdat { get; set; }
 
+        public string Matnr { get; set; }
+
         /// <remarks/>
         public string Idnrk { get; set; }
 
@@ -130,4 +132,6 @@
             get; set; }
 
         }
+
+
     }

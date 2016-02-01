@@ -35,6 +35,20 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private string c1Field;
         
+        private string c10Field;
+        
+        private string c11Field;
+        
+        private string c12Field;
+        
+        private string c13Field;
+        
+        private string c14Field;
+        
+        private string c15Field;
+        
+        private string c16Field;
+        
         private string c2Field;
         
         private string c3Field;
@@ -71,7 +85,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private ZinventHrk[] gtZinventHrkField;
         
-        private ZinventMlz[] gtZinventMlzField;
+        private ZinventMlz2[] gtZinventMlzField;
         
         private ZinventSas[] gtZinventSasField;
         
@@ -84,20 +98,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         private ZinventTrn[] gtZinventTrnField;
         
         private ZinventUy[] gtZinventUyField;
-        
-        private string c10Field;
-        
-        private string c11Field;
-        
-        private string c12Field;
-        
-        private string c13Field;
-        
-        private string c14Field;
-        
-        private string c15Field;
-        
-        private string c16Field;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -113,6 +113,90 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string C10 {
+            get {
+                return this.c10Field;
+            }
+            set {
+                this.c10Field = value;
+                this.RaisePropertyChanged("C10");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string C11 {
+            get {
+                return this.c11Field;
+            }
+            set {
+                this.c11Field = value;
+                this.RaisePropertyChanged("C11");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string C12 {
+            get {
+                return this.c12Field;
+            }
+            set {
+                this.c12Field = value;
+                this.RaisePropertyChanged("C12");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string C13 {
+            get {
+                return this.c13Field;
+            }
+            set {
+                this.c13Field = value;
+                this.RaisePropertyChanged("C13");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string C14 {
+            get {
+                return this.c14Field;
+            }
+            set {
+                this.c14Field = value;
+                this.RaisePropertyChanged("C14");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public string C15 {
+            get {
+                return this.c15Field;
+            }
+            set {
+                this.c15Field = value;
+                this.RaisePropertyChanged("C15");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string C16 {
+            get {
+                return this.c16Field;
+            }
+            set {
+                this.c16Field = value;
+                this.RaisePropertyChanged("C16");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string C2 {
             get {
                 return this.c2Field;
@@ -124,7 +208,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string C3 {
             get {
                 return this.c3Field;
@@ -136,7 +220,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string C4 {
             get {
                 return this.c4Field;
@@ -148,7 +232,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string C5 {
             get {
                 return this.c5Field;
@@ -160,7 +244,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string C6 {
             get {
                 return this.c6Field;
@@ -172,7 +256,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public string C7 {
             get {
                 return this.c7Field;
@@ -184,7 +268,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
         public string C8 {
             get {
                 return this.c8Field;
@@ -196,7 +280,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
         public string C9 {
             get {
                 return this.c9Field;
@@ -208,7 +292,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
         public string Erdat {
             get {
                 return this.erdatField;
@@ -220,7 +304,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZentLfa1[] GtLfa1 {
             get {
@@ -233,7 +317,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZentT001[] GtT001 {
             get {
@@ -246,7 +330,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public T023t[] GtT023t {
             get {
@@ -259,7 +343,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public T134t[] GtT134t {
             get {
@@ -272,7 +356,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public T6wst[] GtT6wst {
             get {
@@ -285,7 +369,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public WrfBrandsT[] GtWrfBrandsT {
             get {
@@ -298,7 +382,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventAsorti[] GtZinventAsorti {
             get {
@@ -311,7 +395,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventFyt[] GtZinventFyt {
             get {
@@ -324,7 +408,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventHrk[] GtZinventHrk {
             get {
@@ -337,9 +421,9 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public ZinventMlz[] GtZinventMlz {
+        public ZinventMlz2[] GtZinventMlz {
             get {
                 return this.gtZinventMlzField;
             }
@@ -350,7 +434,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventSas[] GtZinventSas {
             get {
@@ -363,7 +447,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=28)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventStok[] GtZinventStok {
             get {
@@ -376,7 +460,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=29)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventStokA[] GtZinventStokA {
             get {
@@ -389,7 +473,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=30)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventTes[] GtZinventTes {
             get {
@@ -402,7 +486,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=31)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventTrn[] GtZinventTrn {
             get {
@@ -415,7 +499,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
+        [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=32)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
         public ZinventUy[] GtZinventUy {
             get {
@@ -424,90 +508,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
             set {
                 this.gtZinventUyField = value;
                 this.RaisePropertyChanged("GtZinventUy");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
-        public string c10 {
-            get {
-                return this.c10Field;
-            }
-            set {
-                this.c10Field = value;
-                this.RaisePropertyChanged("c10");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
-        public string c11 {
-            get {
-                return this.c11Field;
-            }
-            set {
-                this.c11Field = value;
-                this.RaisePropertyChanged("c11");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=28)]
-        public string c12 {
-            get {
-                return this.c12Field;
-            }
-            set {
-                this.c12Field = value;
-                this.RaisePropertyChanged("c12");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=29)]
-        public string c13 {
-            get {
-                return this.c13Field;
-            }
-            set {
-                this.c13Field = value;
-                this.RaisePropertyChanged("c13");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=30)]
-        public string c14 {
-            get {
-                return this.c14Field;
-            }
-            set {
-                this.c14Field = value;
-                this.RaisePropertyChanged("c14");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=31)]
-        public string c15 {
-            get {
-                return this.c15Field;
-            }
-            set {
-                this.c15Field = value;
-                this.RaisePropertyChanged("c15");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=32)]
-        public string c16 {
-            get {
-                return this.c16Field;
-            }
-            set {
-                this.c16Field = value;
-                this.RaisePropertyChanged("c16");
             }
         }
         
@@ -1773,11 +1773,13 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="urn:sap-com:document:sap:soap:functions:mc-style")]
-    public partial class ZinventMlz : object, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ZinventMlz2 : object, System.ComponentModel.INotifyPropertyChanged {
         
         private string mandtField;
         
         private string erdatField;
+        
+        private string matnrField;
         
         private string idnrkField;
         
@@ -1787,7 +1789,23 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private string size1Field;
         
+        private string sblsnField;
+        
+        private string mtartField;
+        
+        private string attypField;
+        
+        private string ersdaField;
+        
+        private string laedaField;
+        
         private string matklField;
+        
+        private string ean11Field;
+        
+        private string lifnrField;
+        
+        private string meinsField;
         
         private string brandIdField;
         
@@ -1821,9 +1839,29 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private string zzbdngrField;
         
+        private string zzmsayaField;
+        
+        private string zzicastField;
+        
+        private string zztbnmlField;
+        
         private string zzmenseField;
         
         private string zzktaskField;
+        
+        private string zztbnseField;
+        
+        private string zzssayaField;
+        
+        private string zzkapasField;
+        
+        private string zzekstoField;
+        
+        private string zzztemaField;
+        
+        private string zzlfstlField;
+        
+        private string zzplnkdField;
         
         private string zzoutltField;
         
@@ -1838,6 +1876,10 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         private string zzszdgsField;
         
         private string zzurunField;
+        
+        private string zztarzField;
+        
+        private string zzktanimField;
         
         private string zzstkgrField;
         
@@ -1856,6 +1898,18 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         private string zzomurbtField;
         
         private string bwsclField;
+        
+        private string laengField;
+        
+        private string breitField;
+        
+        private string hoeheField;
+        
+        private string meabmField;
+        
+        private string volumField;
+        
+        private string volehField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
@@ -1883,6 +1937,18 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string Matnr {
+            get {
+                return this.matnrField;
+            }
+            set {
+                this.matnrField = value;
+                this.RaisePropertyChanged("Matnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public string Idnrk {
             get {
                 return this.idnrkField;
@@ -1894,7 +1960,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string Satnr {
             get {
                 return this.satnrField;
@@ -1906,7 +1972,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string Maktx {
             get {
                 return this.maktxField;
@@ -1918,7 +1984,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string Size1 {
             get {
                 return this.size1Field;
@@ -1930,7 +1996,67 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public string Sblsn {
+            get {
+                return this.sblsnField;
+            }
+            set {
+                this.sblsnField = value;
+                this.RaisePropertyChanged("Sblsn");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string Mtart {
+            get {
+                return this.mtartField;
+            }
+            set {
+                this.mtartField = value;
+                this.RaisePropertyChanged("Mtart");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string Attyp {
+            get {
+                return this.attypField;
+            }
+            set {
+                this.attypField = value;
+                this.RaisePropertyChanged("Attyp");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string Ersda {
+            get {
+                return this.ersdaField;
+            }
+            set {
+                this.ersdaField = value;
+                this.RaisePropertyChanged("Ersda");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public string Laeda {
+            get {
+                return this.laedaField;
+            }
+            set {
+                this.laedaField = value;
+                this.RaisePropertyChanged("Laeda");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string Matkl {
             get {
                 return this.matklField;
@@ -1942,7 +2068,43 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public string Ean11 {
+            get {
+                return this.ean11Field;
+            }
+            set {
+                this.ean11Field = value;
+                this.RaisePropertyChanged("Ean11");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        public string Lifnr {
+            get {
+                return this.lifnrField;
+            }
+            set {
+                this.lifnrField = value;
+                this.RaisePropertyChanged("Lifnr");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        public string Meins {
+            get {
+                return this.meinsField;
+            }
+            set {
+                this.meinsField = value;
+                this.RaisePropertyChanged("Meins");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
         public string BrandId {
             get {
                 return this.brandIdField;
@@ -1954,7 +2116,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         public string Bismt {
             get {
                 return this.bismtField;
@@ -1966,7 +2128,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         public string Zzeslenik {
             get {
                 return this.zzeslenikField;
@@ -1978,7 +2140,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
         public string Zzvip {
             get {
                 return this.zzvipField;
@@ -1990,7 +2152,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
         public string Wekgr {
             get {
                 return this.wekgrField;
@@ -2002,7 +2164,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
         public string Saiso {
             get {
                 return this.saisoField;
@@ -2014,7 +2176,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
         public string Saisj {
             get {
                 return this.saisjField;
@@ -2026,7 +2188,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
         public string Labor {
             get {
                 return this.laborField;
@@ -2038,7 +2200,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
         public string Zzmodel {
             get {
                 return this.zzmodelField;
@@ -2050,7 +2212,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
         public string Zzrenka {
             get {
                 return this.zzrenkaField;
@@ -2062,7 +2224,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
         public string Zzrenk2 {
             get {
                 return this.zzrenk2Field;
@@ -2074,7 +2236,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
         public string Zzrenk3 {
             get {
                 return this.zzrenk3Field;
@@ -2086,7 +2248,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=19)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=28)]
         public string Zzfytgr {
             get {
                 return this.zzfytgrField;
@@ -2098,7 +2260,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=20)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=29)]
         public string Zzamark {
             get {
                 return this.zzamarkField;
@@ -2110,7 +2272,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=21)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=30)]
         public string Zzcnsyt {
             get {
                 return this.zzcnsytField;
@@ -2122,7 +2284,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=22)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=31)]
         public string Zzbdngr {
             get {
                 return this.zzbdngrField;
@@ -2134,7 +2296,43 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=32)]
+        public string Zzmsaya {
+            get {
+                return this.zzmsayaField;
+            }
+            set {
+                this.zzmsayaField = value;
+                this.RaisePropertyChanged("Zzmsaya");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=33)]
+        public string Zzicast {
+            get {
+                return this.zzicastField;
+            }
+            set {
+                this.zzicastField = value;
+                this.RaisePropertyChanged("Zzicast");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=34)]
+        public string Zztbnml {
+            get {
+                return this.zztbnmlField;
+            }
+            set {
+                this.zztbnmlField = value;
+                this.RaisePropertyChanged("Zztbnml");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=35)]
         public string Zzmense {
             get {
                 return this.zzmenseField;
@@ -2146,7 +2344,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=36)]
         public string Zzktask {
             get {
                 return this.zzktaskField;
@@ -2158,7 +2356,91 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=37)]
+        public string Zztbnse {
+            get {
+                return this.zztbnseField;
+            }
+            set {
+                this.zztbnseField = value;
+                this.RaisePropertyChanged("Zztbnse");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=38)]
+        public string Zzssaya {
+            get {
+                return this.zzssayaField;
+            }
+            set {
+                this.zzssayaField = value;
+                this.RaisePropertyChanged("Zzssaya");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=39)]
+        public string Zzkapas {
+            get {
+                return this.zzkapasField;
+            }
+            set {
+                this.zzkapasField = value;
+                this.RaisePropertyChanged("Zzkapas");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=40)]
+        public string Zzeksto {
+            get {
+                return this.zzekstoField;
+            }
+            set {
+                this.zzekstoField = value;
+                this.RaisePropertyChanged("Zzeksto");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=41)]
+        public string Zzztema {
+            get {
+                return this.zzztemaField;
+            }
+            set {
+                this.zzztemaField = value;
+                this.RaisePropertyChanged("Zzztema");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=42)]
+        public string Zzlfstl {
+            get {
+                return this.zzlfstlField;
+            }
+            set {
+                this.zzlfstlField = value;
+                this.RaisePropertyChanged("Zzlfstl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=43)]
+        public string Zzplnkd {
+            get {
+                return this.zzplnkdField;
+            }
+            set {
+                this.zzplnkdField = value;
+                this.RaisePropertyChanged("Zzplnkd");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=44)]
         public string Zzoutlt {
             get {
                 return this.zzoutltField;
@@ -2170,7 +2452,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=45)]
         public string Zzouttr {
             get {
                 return this.zzouttrField;
@@ -2182,7 +2464,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=46)]
         public string Zzzline {
             get {
                 return this.zzzlineField;
@@ -2194,7 +2476,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=28)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=47)]
         public string Zzsezon {
             get {
                 return this.zzsezonField;
@@ -2206,7 +2488,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=29)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=48)]
         public string Zzszyil {
             get {
                 return this.zzszyilField;
@@ -2218,7 +2500,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=30)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=49)]
         public string Zzszdgs {
             get {
                 return this.zzszdgsField;
@@ -2230,7 +2512,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=31)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=50)]
         public string Zzurun {
             get {
                 return this.zzurunField;
@@ -2242,7 +2524,31 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=32)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=51)]
+        public string Zztarz {
+            get {
+                return this.zztarzField;
+            }
+            set {
+                this.zztarzField = value;
+                this.RaisePropertyChanged("Zztarz");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=52)]
+        public string Zzktanim {
+            get {
+                return this.zzktanimField;
+            }
+            set {
+                this.zzktanimField = value;
+                this.RaisePropertyChanged("Zzktanim");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=53)]
         public string Zzstkgr {
             get {
                 return this.zzstkgrField;
@@ -2254,7 +2560,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=33)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=54)]
         public string Zzkmpr1 {
             get {
                 return this.zzkmpr1Field;
@@ -2266,7 +2572,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=34)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=55)]
         public string Zzkmpr2 {
             get {
                 return this.zzkmpr2Field;
@@ -2278,7 +2584,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=35)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=56)]
         public string Zzkmpr3 {
             get {
                 return this.zzkmpr3Field;
@@ -2290,7 +2596,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=36)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=57)]
         public string Zzkmpr4 {
             get {
                 return this.zzkmpr4Field;
@@ -2302,7 +2608,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=37)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=58)]
         public string Zzkmpr5 {
             get {
                 return this.zzkmpr5Field;
@@ -2314,7 +2620,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=38)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=59)]
         public string Zzomurb {
             get {
                 return this.zzomurbField;
@@ -2326,7 +2632,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=39)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=60)]
         public string Zzomurbt {
             get {
                 return this.zzomurbtField;
@@ -2338,7 +2644,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=40)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=61)]
         public string Bwscl {
             get {
                 return this.bwsclField;
@@ -2346,6 +2652,78 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
             set {
                 this.bwsclField = value;
                 this.RaisePropertyChanged("Bwscl");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=62)]
+        public string Laeng {
+            get {
+                return this.laengField;
+            }
+            set {
+                this.laengField = value;
+                this.RaisePropertyChanged("Laeng");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=63)]
+        public string Breit {
+            get {
+                return this.breitField;
+            }
+            set {
+                this.breitField = value;
+                this.RaisePropertyChanged("Breit");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=64)]
+        public string Hoehe {
+            get {
+                return this.hoeheField;
+            }
+            set {
+                this.hoeheField = value;
+                this.RaisePropertyChanged("Hoehe");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=65)]
+        public string Meabm {
+            get {
+                return this.meabmField;
+            }
+            set {
+                this.meabmField = value;
+                this.RaisePropertyChanged("Meabm");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=66)]
+        public string Volum {
+            get {
+                return this.volumField;
+            }
+            set {
+                this.volumField = value;
+                this.RaisePropertyChanged("Volum");
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=67)]
+        public string Voleh {
+            get {
+                return this.volehField;
+            }
+            set {
+                this.volehField = value;
+                this.RaisePropertyChanged("Voleh");
             }
         }
         
@@ -2759,8 +3137,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private string idnrkField;
         
-        private string stlnrField;
-        
         private string matnrField;
         
         private decimal mengeField;
@@ -2805,18 +3181,6 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
-        public string Stlnr {
-            get {
-                return this.stlnrField;
-            }
-            set {
-                this.stlnrField = value;
-                this.RaisePropertyChanged("Stlnr");
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string Matnr {
             get {
                 return this.matnrField;
@@ -2828,7 +3192,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public decimal Menge {
             get {
                 return this.mengeField;
@@ -2840,7 +3204,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string Zzkolitipi {
             get {
                 return this.zzkolitipiField;
@@ -3243,7 +3607,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         
         private ZinventHrk[] gtZinventHrkField;
         
-        private ZinventMlz[] gtZinventMlzField;
+        private ZinventMlz2[] gtZinventMlzField;
         
         private ZinventSas[] gtZinventSasField;
         
@@ -3377,7 +3741,7 @@ namespace ZiylanEtl.PeraportChildService.ServiceProxy {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         [System.Xml.Serialization.XmlArrayItemAttribute("item", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public ZinventMlz[] GtZinventMlz {
+        public ZinventMlz2[] GtZinventMlz {
             get {
                 return this.gtZinventMlzField;
             }
