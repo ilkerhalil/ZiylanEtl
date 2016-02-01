@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -117,10 +118,20 @@ namespace ZiylanEtl.PeraportChildService
             toplamZaman.Stop();
             Helper.CreateLog(baslamaZamani, logContent, bitisZamani, toplamGecenZaman);
 
-
             //Datayı insert edeceğiz
-
+            InsertData(DtoSet);
         }
+
+        private void InsertData(DtoSet dtoSet)
+        {
+            foreach (var propertyInfo in DtoSet.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance))
+            {
+                var query = Helper.CreateInsertQuery(propertyInfo.PropertyType);
+                _dataAccess.ExecuteQuery(query, CommandType.Text, propertyInfo.GetValue(dtoSet));
+            }
+        }
+
+
 
         private void AddDtoSet(object o)
         {

@@ -106,5 +106,10 @@ w.PropertyType.IsArray);
             var dolukoleksiyonlar = st.ToFormattedString("<li>{0} : {1} \n</li>", Environment.NewLine);
             return dolukoleksiyonlar;
         }
+        public static string CreateInsertQuery(Type type)
+        {
+            var valuesVb = string.Join(",", type.GetProperties().Select(s => $"@{s.Name}"));
+            return $"insert into {type.Name.Replace("dto", "")} values ({valuesVb})";
+        }
     }
 }
