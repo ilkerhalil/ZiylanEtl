@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Security;
 using System.Text;
 using AutoMapper;
@@ -37,11 +35,16 @@ namespace ZiylanEtl.PeraportChildService
 
         public string Erdat { get; set; }
 
+
+
         public IDictionary<string, object> ChildServiceParameters { get; }
 
         public override string ServiceName { get; } = "Peraport ETL Service";
 
         #endregion
+
+        public override void StartService()
+        {
 
             var toplamZaman = Stopwatch.StartNew();
             ZrtEntPeraportResponse1 response = null;
@@ -97,7 +100,7 @@ namespace ZiylanEtl.PeraportChildService
             _zRtEntPeraportClient.ClientCredentials.UserName.Password = Password;
         }
 
-        #region PrivateMethods
+       
         private void ValidateServiceParameter()
         {
             if (Username.IsNullAndWhiteSpace()) throw new SecurityException("Username boş olamaz");
@@ -136,22 +139,22 @@ namespace ZiylanEtl.PeraportChildService
                 C14 = "",
                 C15 = "",
                 C16 = "",
-                GtZinventHrk = new[] {new ZinventHrk(),},
-                GtZinventAsorti = new[] {new ZinventAsorti(),},
-                GtZinventFyt = new[] {new ZinventFyt(),},
-                GtZinventMlz = new[] {new ZinventMlz2(),  },
-                GtZinventStok = new[] {new ZinventStok(),},
-                GtZinventStokA = new[] {new ZinventStokA(),},
-                GtZinventTes = new[] {new ZinventTes(),},
-                GtZinventTrn = new[] {new ZinventTrn(),},
-                GtZinventUy = new[] {new ZinventUy(),},
-                GtT6wst = new[] {new T6wst(),},
-                GtT134t = new[] {new T134t(),},
-                GtLfa1 = new[] {new ZentLfa1(),},
-                GtT001 = new[] {new ZentT001(),},
-                GtT023t = new[] {new T023t(),},
-                GtWrfBrandsT = new[] {new WrfBrandsT(),},
-                GtZinventSas = new[] {new ZinventSas(),}
+                GtZinventHrk = new[] { new ZinventHrk(), },
+                GtZinventAsorti = new[] { new ZinventAsorti(), },
+                GtZinventFyt = new[] { new ZinventFyt(), },
+                GtZinventMlz = new[] { new ZinventMlz2(), },
+                GtZinventStok = new[] { new ZinventStok(), },
+                GtZinventStokA = new[] { new ZinventStokA(), },
+                GtZinventTes = new[] { new ZinventTes(), },
+                GtZinventTrn = new[] { new ZinventTrn(), },
+                GtZinventUy = new[] { new ZinventUy(), },
+                GtT6wst = new[] { new T6wst(), },
+                GtT134t = new[] { new T134t(), },
+                GtLfa1 = new[] { new ZentLfa1(), },
+                GtT001 = new[] { new ZentT001(), },
+                GtT023t = new[] { new T023t(), },
+                GtWrfBrandsT = new[] { new WrfBrandsT(), },
+                GtZinventSas = new[] { new ZinventSas(), }
             };
 
             var property = zrnEntPeraPort.GetType().GetProperties().Single(w => w.Name == filter);

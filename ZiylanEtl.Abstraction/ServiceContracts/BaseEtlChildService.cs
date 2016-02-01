@@ -12,10 +12,7 @@ namespace ZiylanEtl.Abstraction.ServiceContracts
             ChildServiceParameters = new Dictionary<string, object>();
         }
 
-        public void StartService(out string logContent)
-        {
-            throw new System.NotImplementedException();
-        }
+      
 
         public IDictionary<string, object> ChildServiceParameters { get; private set; }
     }
