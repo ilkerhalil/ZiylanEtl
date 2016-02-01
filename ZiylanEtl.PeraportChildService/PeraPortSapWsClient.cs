@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -23,7 +24,7 @@ namespace ZiylanEtl.PeraportChildService
         #region Fields
 
         private readonly IDataAccess _dataAccess;
-        private readonly ZRT_ENT_PERAPORTClient _zRtEntPeraportClient;
+        private ZRT_ENT_PERAPORTClient _zRtEntPeraportClient;
         private readonly string[] _filters =
             {
                 "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11","C12", "C13", "C14", "C15", "C16"
@@ -53,6 +54,7 @@ namespace ZiylanEtl.PeraportChildService
 
         private void InitWebServiceClient()
         {
+            _zRtEntPeraportClient = new ZRT_ENT_PERAPORTClient("binding_SOAP12");
             _zRtEntPeraportClient.ClientCredentials.UserName.UserName = Username;
             _zRtEntPeraportClient.ClientCredentials.UserName.Password = Password;
         }
@@ -86,7 +88,7 @@ namespace ZiylanEtl.PeraportChildService
                 var startNew = Stopwatch.StartNew();
                 var exceptionMessage = string.Empty;
 
-                var request = Helper.CreateRequest(filter, Erdat);
+                var request = Helper.CreateRequest(filter, "2015-04-17");
                 response = _zRtEntPeraportClient.ZrtEntPeraport(request);
 
 
@@ -100,15 +102,21 @@ namespace ZiylanEtl.PeraportChildService
 
                 var enumerable = response.ZrtEntPeraportResponse.GetType()
                     .GetProperties().Where(w => w.PropertyType.IsArray && w.GetValue(response.ZrtEntPeraportResponse) != null && (w.GetValue(response.ZrtEntPeraportResponse) as Array).Length > 1)
-                    .Select(s => s.GetValue(response.ZrtEntPeraportResponse)).Single();
-                AddDtoSet(enumerable);
+                    .Select(s => s.GetValue(response.ZrtEntPeraportResponse));
+
+                if (enumerable.Any())
+                {
+                    AddDtoSet(enumerable.Single());
+                }
+
+
                 logContent += string.Concat(parameterName, Environment.NewLine, exceptionMessage, Environment.NewLine, gecenZaman, Environment.NewLine, dolukoleksiyonlar);
             }
             var bitisZamani = DateTime.Now;
             var toplamGecenZaman = toplamZaman.Elapsed;
             toplamZaman.Stop();
             Helper.CreateLog(baslamaZamani, logContent, bitisZamani, toplamGecenZaman);
-    
+
 
             //Datayı insert edeceğiz
 
@@ -121,7 +129,8 @@ namespace ZiylanEtl.PeraportChildService
             var listType = typeof(List<>);
             var constructedListType = listType.MakeGenericType(targetType);
             var tr = mapper.Map(o, o.GetType(), constructedListType);
-            DtoSet.GetType().GetProperties().Single(s => s.PropertyType == tr.GetType()).SetValue(tr, DtoSet);
+            var property = DtoSet.GetType().GetProperties().Single(s => s.PropertyType == tr.GetType());
+            property.SetValue(DtoSet, tr);
         }
 
 
