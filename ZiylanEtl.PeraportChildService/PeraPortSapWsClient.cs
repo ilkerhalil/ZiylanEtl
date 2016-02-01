@@ -14,6 +14,7 @@ using ZiylanEtl.PeraportChildService.Dto;
 
 namespace ZiylanEtl.PeraportChildService
 {
+    /* Peraport ETL Webservice Client */
     public class PeraPortSapWsClient : BaseEtlChildService
     {
         private readonly IDataAccess _dataAccess;
@@ -62,7 +63,6 @@ namespace ZiylanEtl.PeraportChildService
                 {
                     var request = CreateRequest(filter);
                     response = _zRtEntPeraportClient.ZrtEntPeraport(request);
-
                 }
                 catch (Exception ex)
                 {
