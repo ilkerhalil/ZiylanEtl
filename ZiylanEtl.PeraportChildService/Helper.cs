@@ -84,17 +84,23 @@ namespace ZiylanEtl.PeraportChildService
             });
             return mapperConfiguration.CreateMapper();
         }
-        public static void CreateLog(DateTime baslamaZamani, string content, DateTime bitisZamani, TimeSpan toplamZaman)
+        public static void CreateLog(string content, DateTime webServisBaslamaZamani, DateTime webServisBitisZamani,TimeSpan webServisSure, DateTime dbKayitBaslangicZamani,DateTime dbKayitBitisZamani,TimeSpan dbKayitSuresi, TimeSpan toplamZaman)
         {
             var builder = new StringBuilder();
             builder.AppendLine("<html><head><meta charset=\"utf-8\" /></head><body><div>");
-            builder.AppendFormat("<b>Başlama Zamanı {0}</b>", baslamaZamani);
+            builder.AppendFormat("<b>Web Servis Çağrısı Başlama Zamanı {0}</b>", webServisBaslamaZamani);
             builder.AppendLine("<ul>");
             builder.AppendLine(content);
             builder.AppendLine("</ul>");
             builder.AppendLine("</div>");
-            builder.AppendFormat("<b>Bitiş Zamanı {0}</b>", bitisZamani.ToString("F"));
-            builder.AppendFormat("<b>Geçen Zaman {0}</b>", toplamZaman.ToString("G"));
+            builder.AppendFormat("<b>Web Servis Çağrısı Bitiş Zamanı {0}</b>", webServisBitisZamani.ToString("F"));
+            builder.AppendFormat("<b>Web Servis Çağrısında Geçen Zaman {0}</b>", webServisSure.ToString("G"));
+
+            builder.AppendFormat("<b>Database Kayıt Başlangıç Zamanı {0}</b>", dbKayitBaslangicZamani.ToString("F"));
+            builder.AppendFormat("<b>Database Kayıt Bitiş Zamanı  {0}</b>", dbKayitBitisZamani.ToString("G"));
+            builder.AppendFormat("<b>Database Kayıt Esnasında Geçen Zaman {0}</b>", dbKayitSuresi.ToString("G"));
+            builder.AppendFormat("<b>Toplam Süre {0}</b>", toplamZaman.ToString("G"));
+
             builder.AppendLine("</body></html>");
             File.WriteAllText(Path.GetRandomFileName() + ".txt", builder.ToString());
         }
@@ -109,7 +115,8 @@ w.PropertyType.IsArray);
         public static string CreateInsertQuery(Type type)
         {
             var valuesVb = string.Join(",", type.GetProperties().Select(s => $"@{s.Name}"));
-            return $"insert into {type.Name.Replace("dto", "")} values ({valuesVb})";
+            var tableName = type.Name.Replace("Dto", "").Trim();
+            return $"insert into {tableName} values ({valuesVb})";
         }
     }
 }

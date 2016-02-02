@@ -22,12 +22,12 @@ namespace ZiylanEtl.DataAccess
         }
        
 
-        public IEnumerable<T> Query<T>(string sql, CommandType commandType, params object[] parameter)
+        public IEnumerable<T> Query<T>(string sql, CommandType commandType, object parameter)
         {
             return _sqlConnection.Query<T>(sql, parameter,commandType:commandType);
         }
 
-        public int ExecuteQuery(string sql, CommandType commandType, params object[] parameter)
+        public int ExecuteQuery(string sql, CommandType commandType,  object parameter)
         {
             return _sqlConnection.Execute(sql, parameter, commandType: commandType);
         }

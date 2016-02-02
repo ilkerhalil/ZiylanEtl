@@ -6,9 +6,9 @@ namespace ZiylanEtl.DataAccess
 {
     public interface IDataAccess : IDisposable
     {
-        IEnumerable<T> Query<T>(string sql, CommandType commandType,params object[] parameter);
+        IEnumerable<T> Query<T>(string sql, CommandType commandType,object parameter);
 
-        int ExecuteQuery(string sql, CommandType commandType, params object[] parameter);
+        int ExecuteQuery(string sql, CommandType commandType, object parameter);
 
     }
 }

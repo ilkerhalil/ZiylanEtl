@@ -3,12 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security;
-using System.Text;
-using AutoMapper;
 using ZiylanEtl.Abstraction.Helper;
 using ZiylanEtl.Abstraction.ServiceContracts;
 using ZiylanEtl.PeraportChildService.ServiceProxy;
@@ -78,25 +75,25 @@ namespace ZiylanEtl.PeraportChildService
 
         public override void StartService()
         {
-            var baslamaZamani = DateTime.Now;
+            var webServisBaslamaZamani = DateTime.Now;
             var toplamZaman = Stopwatch.StartNew();
             ValidateServiceParameter();
             ZrtEntPeraportResponse1 response = null;
 
             var logContent = string.Empty;
+
             foreach (var filter in _filters)
             {
+                Console.WriteLine(filter);
                 var startNew = Stopwatch.StartNew();
                 var exceptionMessage = string.Empty;
 
-                var request = Helper.CreateRequest(filter, "2015-04-17");
+                var request = Helper.CreateRequest(filter, "2016-01-31");
                 response = _zRtEntPeraportClient.ZrtEntPeraport(request);
-
 
                 var parameterName = $"Filtre : {filter} \n Test Zamanı : {DateTime.Now.ToLongDateString() + ":" + DateTime.Now.ToLongTimeString()}";
                 var gecenZaman = startNew.Elapsed;
                 startNew.Stop();
-
 
                 //info => (info.GetValue(response.ZrtEntPeraportResponse) as Array
                 var dolukoleksiyonlar = Helper.SerializeNonEmptyCollections(response);
@@ -109,29 +106,38 @@ namespace ZiylanEtl.PeraportChildService
                 {
                     AddDtoSet(enumerable.Single());
                 }
-
-
+                throw new Exception("Test Exception");
                 logContent += string.Concat(parameterName, Environment.NewLine, exceptionMessage, Environment.NewLine, gecenZaman, Environment.NewLine, dolukoleksiyonlar);
             }
-            var bitisZamani = DateTime.Now;
-            var toplamGecenZaman = toplamZaman.Elapsed;
-            toplamZaman.Stop();
-            Helper.CreateLog(baslamaZamani, logContent, bitisZamani, toplamGecenZaman);
 
+            var webServisSure = toplamZaman.Elapsed;
+            var webServisBitisZamani = DateTime.Now;
+            var dbKayitBaslangicZamani = DateTime.Now;
+            var dbKayitSuresi = Stopwatch.StartNew();
+            
             //Datayı insert edeceğiz
             InsertData(DtoSet);
+
+            var toplamDbKayitSuresi = dbKayitSuresi.Elapsed;
+            var dbKayitBitisZamani = DateTime.Now;
+            dbKayitSuresi.Stop();
+
+            var toplamGecenZaman = toplamZaman.Elapsed;
+            toplamZaman.Stop();
+            Helper.CreateLog(logContent, webServisBaslamaZamani, webServisBitisZamani, webServisSure, dbKayitBaslangicZamani, dbKayitBitisZamani , toplamDbKayitSuresi, toplamGecenZaman);
+
         }
 
         private void InsertData(DtoSet dtoSet)
         {
             foreach (var propertyInfo in DtoSet.GetType().GetProperties(BindingFlags.Public | BindingFlags.DeclaredOnly | BindingFlags.Instance))
             {
-                var query = Helper.CreateInsertQuery(propertyInfo.PropertyType);
+                if (propertyInfo.GetValue(dtoSet) == null) continue;
+                if ((propertyInfo.GetValue(dtoSet) as IList).Count <= 1) continue;
+                var query = Helper.CreateInsertQuery(propertyInfo.PropertyType.GenericTypeArguments[0]);
                 _dataAccess.ExecuteQuery(query, CommandType.Text, propertyInfo.GetValue(dtoSet));
             }
         }
-
-
 
         private void AddDtoSet(object o)
         {
@@ -143,14 +149,5 @@ namespace ZiylanEtl.PeraportChildService
             var property = DtoSet.GetType().GetProperties().Single(s => s.PropertyType == tr.GetType());
             property.SetValue(DtoSet, tr);
         }
-
-
-
-
-
-
-
-
-
     }
 }
