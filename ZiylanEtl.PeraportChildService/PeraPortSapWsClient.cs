@@ -6,7 +6,9 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
 using System.Security;
+using System.Configuration;
 using ZiylanEtl.Abstraction.Helper;
+using ZiylanEtl.Abstraction.Notification;
 using ZiylanEtl.Abstraction.ServiceContracts;
 using ZiylanEtl.PeraportChildService.ServiceProxy;
 using ZiylanEtl.DataAccess;
@@ -22,12 +24,14 @@ namespace ZiylanEtl.PeraportChildService
         #region Fields
 
         private readonly IDataAccess _dataAccess;
+        private readonly INotification _notification;
         private ZRT_ENT_PERAPORTClient _zRtEntPeraportClient;
-        private readonly string[] _filters =
+        private string[] _filters =
             {
                 "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11","C12", "C13", "C14", "C15", "C16"
             };
 
+        private bool _insert;
 
         #endregion
 
@@ -41,12 +45,11 @@ namespace ZiylanEtl.PeraportChildService
 
 
 
-        public IDictionary<string, object> ChildServiceParameters { get; }
+       // public IDictionary<string, object> ChildServiceParameters { get; }
 
         public override string ServiceName { get; } = "Peraport ETL Service";
 
         #endregion
-
 
         #region PrivateMethods
 
@@ -66,9 +69,11 @@ namespace ZiylanEtl.PeraportChildService
         #endregion
 
 
-        public PeraPortSapWsClient(IDataAccess dataAccess)
+        public PeraPortSapWsClient(IDataAccess dataAccess,INotification notification)
         {
             _dataAccess = dataAccess;
+            _notification = notification;
+            //ChildServiceParameters = new Dictionary<string, object>();
             InitWebServiceClient();
             DtoSet = new DtoSet();
         }
@@ -82,13 +87,23 @@ namespace ZiylanEtl.PeraportChildService
 
             var logContent = string.Empty;
 
+            object tables = null;
+            this.ChildServiceParameters.TryGetValue("Tables", out tables);
+            if (tables != null) _filters = tables.ToString().Split(new char[] {','}, StringSplitOptions.None);
+
+
             foreach (var filter in _filters)
             {
                 Console.WriteLine(filter);
                 var startNew = Stopwatch.StartNew();
                 var exceptionMessage = string.Empty;
 
-                var request = Helper.CreateRequest(filter, "2016-01-31");
+                object erdat = null;
+
+                this.ChildServiceParameters.TryGetValue("Erdat", out erdat);
+                Erdat = erdat.ToString();
+
+                var request = Helper.CreateRequest(filter, Erdat);
                 response = _zRtEntPeraportClient.ZrtEntPeraport(request);
 
                 var parameterName = $"Filtre : {filter} \n Test Zamanı : {DateTime.Now.ToLongDateString() + ":" + DateTime.Now.ToLongTimeString()}";
@@ -106,7 +121,7 @@ namespace ZiylanEtl.PeraportChildService
                 {
                     AddDtoSet(enumerable.Single());
                 }
-                throw new Exception("Test Exception");
+             
                 logContent += string.Concat(parameterName, Environment.NewLine, exceptionMessage, Environment.NewLine, gecenZaman, Environment.NewLine, dolukoleksiyonlar);
             }
 
@@ -114,9 +129,16 @@ namespace ZiylanEtl.PeraportChildService
             var webServisBitisZamani = DateTime.Now;
             var dbKayitBaslangicZamani = DateTime.Now;
             var dbKayitSuresi = Stopwatch.StartNew();
-            
-            //Datayı insert edeceğiz
-            InsertData(DtoSet);
+
+            object insert = null;
+            this.ChildServiceParameters.TryGetValue("Insert", out insert);
+
+            bool testMode =  Convert.ToBoolean(ConfigurationManager.AppSettings["TestMode"]);
+
+            if (insert != null) _insert = (bool)insert;
+
+            //Database'e yaz
+            if(_insert && !testMode) InsertData(DtoSet);
 
             var toplamDbKayitSuresi = dbKayitSuresi.Elapsed;
             var dbKayitBitisZamani = DateTime.Now;
@@ -124,6 +146,8 @@ namespace ZiylanEtl.PeraportChildService
 
             var toplamGecenZaman = toplamZaman.Elapsed;
             toplamZaman.Stop();
+            //_notification.Send("");
+
             Helper.CreateLog(logContent, webServisBaslamaZamani, webServisBitisZamani, webServisSure, dbKayitBaslangicZamani, dbKayitBitisZamani , toplamDbKayitSuresi, toplamGecenZaman);
 
         }
@@ -134,6 +158,7 @@ namespace ZiylanEtl.PeraportChildService
             {
                 if (propertyInfo.GetValue(dtoSet) == null) continue;
                 if ((propertyInfo.GetValue(dtoSet) as IList).Count <= 1) continue;
+                Console.WriteLine(propertyInfo.PropertyType.GenericTypeArguments[0]);
                 var query = Helper.CreateInsertQuery(propertyInfo.PropertyType.GenericTypeArguments[0]);
                 _dataAccess.ExecuteQuery(query, CommandType.Text, propertyInfo.GetValue(dtoSet));
             }

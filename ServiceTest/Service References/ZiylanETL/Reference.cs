@@ -17,13 +17,16 @@ namespace ServiceTest.ZiylanETL {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="EtlServiceRequest", Namespace="http://schemas.datacontract.org/2004/07/ZiylanEtl.Abstraction.ServiceContracts")]
     [System.SerializableAttribute()]
-    public partial class EtlServiceRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    internal partial class EtlServiceRequest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ServiceNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Collections.Generic.Dictionary<string, object> ServiceParameterField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -36,7 +39,7 @@ namespace ServiceTest.ZiylanETL {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string ServiceName {
+        internal string ServiceName {
             get {
                 return this.ServiceNameField;
             }
@@ -44,6 +47,19 @@ namespace ServiceTest.ZiylanETL {
                 if ((object.ReferenceEquals(this.ServiceNameField, value) != true)) {
                     this.ServiceNameField = value;
                     this.RaisePropertyChanged("ServiceName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        internal System.Collections.Generic.Dictionary<string, object> ServiceParameter {
+            get {
+                return this.ServiceParameterField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ServiceParameterField, value) != true)) {
+                    this.ServiceParameterField = value;
+                    this.RaisePropertyChanged("ServiceParameter");
                 }
             }
         }
@@ -60,7 +76,7 @@ namespace ServiceTest.ZiylanETL {
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ZiylanETL.IEtlService")]
-    public interface IEtlService {
+    internal interface IEtlService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IEtlService/StartChildService")]
         void StartChildService(ServiceTest.ZiylanETL.EtlServiceRequest etlServiceRequest);
@@ -70,12 +86,12 @@ namespace ServiceTest.ZiylanETL {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IEtlServiceChannel : ServiceTest.ZiylanETL.IEtlService, System.ServiceModel.IClientChannel {
+    internal interface IEtlServiceChannel : ServiceTest.ZiylanETL.IEtlService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class EtlServiceClient : System.ServiceModel.ClientBase<ServiceTest.ZiylanETL.IEtlService>, ServiceTest.ZiylanETL.IEtlService {
+    internal partial class EtlServiceClient : System.ServiceModel.ClientBase<ServiceTest.ZiylanETL.IEtlService>, ServiceTest.ZiylanETL.IEtlService {
         
         public EtlServiceClient() {
         }

@@ -124,6 +124,14 @@
       <Project>{2e27fd9e-6afc-4af7-840e-7d3a9348520b}</Project>
       <Name>ZiylanEtl.Aop</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZiylanEtl.DataAccess\ZiylanEtl.DataAccess.csproj">
+      <Project>{f8667245-ed03-4c78-8965-d746c6025f33}</Project>
+      <Name>ZiylanEtl.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ZiylanETL.EmailNotification\ZiylanEtl.EmailNotification.csproj">
+      <Project>{8db4cc36-ebb9-4424-8b18-962fc4788ef1}</Project>
+      <Name>ZiylanEtl.EmailNotification</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ZiylanEtl.EtlWebService\ZiylanEtl.EtlWebService.csproj">
       <Project>{c64bd767-5842-41a2-9164-55edd7190f9a}</Project>
       <Name>ZiylanEtl.EtlWebService</Name>

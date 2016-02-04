@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
+﻿using System;
+using Microsoft.Practices.EnterpriseLibrary.Common.Configuration;
 using Microsoft.Practices.EnterpriseLibrary.ExceptionHandling;
 using Microsoft.Practices.EnterpriseLibrary.Logging;
 using Microsoft.Practices.Unity;
@@ -22,6 +23,7 @@ namespace ZiylanEtl.ServiceHost
             ServiceName = "ZiylanEtl.ServiceHost.WindowsService";
             Description = "ZiylanEtl.ServiceHost";
             ServiceDisplayName = "ZiylanEtl.ServiceHost.WindowsService";
+            
         }
 
 

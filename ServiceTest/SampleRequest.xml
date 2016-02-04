@@ -1,0 +1,19 @@
+﻿<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/IEtlService/StartChildService</Action>
+    <VsDebuggerCausalityData xmlns="http://schemas.microsoft.com/vstudio/diagnostics/servicemodelsink"></VsDebuggerCausalityData>
+  </s:Header>
+  <s:Body>
+    <StartChildService xmlns="http://tempuri.org/">
+      <etlServiceRequest xmlns:d4p1="http://schemas.datacontract.org/2004/07/ZiylanEtl.Abstraction.ServiceContracts" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <d4p1:ServiceName>Peraport ETL Service</d4p1:ServiceName>
+        <d4p1:ServiceParameter xmlns:d5p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
+          <d5p1:KeyValueOfstringanyType>
+            <d5p1:Key>Erdat</d5p1:Key>
+            <d5p1:Value xmlns:d7p1="http://www.w3.org/2001/XMLSchema" i:type="d7p1:string">2016-02-03</d5p1:Value>
+          </d5p1:KeyValueOfstringanyType>
+        </d4p1:ServiceParameter>
+      </etlServiceRequest>
+    </StartChildService>
+  </s:Body>
+</s:Envelope>

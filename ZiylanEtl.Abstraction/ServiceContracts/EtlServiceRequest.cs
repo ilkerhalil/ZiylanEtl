@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 
 namespace ZiylanEtl.Abstraction.ServiceContracts
@@ -9,6 +11,8 @@ namespace ZiylanEtl.Abstraction.ServiceContracts
     {
         [DataMember]
         public string ServiceName { get; set; }
+        [DataMember]
+        public Dictionary<string,object> ServiceParameter { get; set; }
 
         public override string ToString()
         {

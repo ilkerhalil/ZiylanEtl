@@ -6,7 +6,7 @@
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
-    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateInternalTypes>true</GenerateInternalTypes>
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings />
@@ -22,10 +22,11 @@
     <MetadataSource Address="http://localhost:8181/?wsdl" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="e669dbc5-c755-4661-847b-309844c1b2aa" SourceId="1" SourceUrl="http://localhost:8181/?xsd=xsd3" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1e89d9ce-258e-490a-95b6-4070004174b6" SourceId="1" SourceUrl="http://localhost:8181/?xsd=xsd2" />
-    <MetadataFile FileName="DefaultEtlWebService.wsdl" MetadataType="Wsdl" ID="fd081c6e-fe4e-4e2d-b626-6b52b0404c5f" SourceId="1" SourceUrl="http://localhost:8181/?wsdl" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="4f1f0024-156a-41d6-92ac-1c858a7106e7" SourceId="1" SourceUrl="http://localhost:8181/?xsd=xsd0" />
     <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="0caf8144-d112-4d98-a9c9-b3cc1c9ddb58" SourceId="1" SourceUrl="http://localhost:8181/?xsd=xsd1" />
+    <MetadataFile FileName="DefaultEtlWebService.wsdl" MetadataType="Wsdl" ID="fd081c6e-fe4e-4e2d-b626-6b52b0404c5f" SourceId="1" SourceUrl="http://localhost:8181/?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

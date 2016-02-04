@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using ZiylanEtl.Abstraction.ServiceContracts;
 
@@ -7,7 +6,7 @@ namespace ZiylanEtl.EtlWebService
 {
     public class DefaultEtlWebService : IEtlService
     {
-        private readonly IEnumerable<IEtlChildService> _services;
+        private readonly IEtlChildService[] _services;
 
         public DefaultEtlWebService(IEtlChildService[] services)
         {
@@ -19,6 +18,17 @@ namespace ZiylanEtl.EtlWebService
             try
             {
                 var etlChildService = _services.Single(s => s.ServiceName == etlServiceRequest.ServiceName);
+                    
+                    if (etlServiceRequest.ServiceParameter != null)
+                {
+                    if (etlServiceRequest.ServiceParameter.Any())
+                    {
+                        foreach (var serviceParameter in etlServiceRequest.ServiceParameter)
+                        {
+                            etlChildService.ChildServiceParameters.Add(serviceParameter);
+                        }
+                    }
+                }
                 etlChildService.StartService();
             }
             catch (Exception exception)

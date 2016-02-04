@@ -11,7 +11,7 @@ namespace ZiylanEtl.PeraportChildService
 {
     internal static class Helper
     {
-        public static ZrtEntPeraportRequest CreateRequest(string filter, string erdat, string dateFormat = "yyyy-MM-dd")
+        public static ZrtEntPeraportRequest CreateRequest(string filter, string erdat,string dateFormat = "yyyy-MM-dd")
         {
             var zrnEntPeraPort = new ZrtEntPeraport
             {
