@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZiylanEtl.DataAccess", "Ziy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZiylanEtl.EmailNotification", "ZiylanETL.EmailNotification\ZiylanEtl.EmailNotification.csproj", "{8DB4CC36-EBB9-4424-8B18-962FC4788EF1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZiylanEtl.PeraportNetConnectorChildService", "ZiylanEtl.PeraportNetConnectorChildService\ZiylanEtl.PeraportNetConnectorChildService.csproj", "{7957DC0F-F61F-461E-87E3-9A96DB152A59}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{8DB4CC36-EBB9-4424-8B18-962FC4788EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8DB4CC36-EBB9-4424-8B18-962FC4788EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8DB4CC36-EBB9-4424-8B18-962FC4788EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7957DC0F-F61F-461E-87E3-9A96DB152A59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7957DC0F-F61F-461E-87E3-9A96DB152A59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7957DC0F-F61F-461E-87E3-9A96DB152A59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7957DC0F-F61F-461E-87E3-9A96DB152A59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

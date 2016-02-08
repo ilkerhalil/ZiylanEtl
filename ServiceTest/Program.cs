@@ -19,7 +19,7 @@ namespace ServiceTest
             req.ServiceName = "Peraport ETL Service";
             req.ServiceParameter = new Dictionary<string, object>();
             req.ServiceParameter.Add("Erdat", "2016-02-03");
-            client.StartChildService(req);
+            client.StartChildService(req); 
         }
     }
 }

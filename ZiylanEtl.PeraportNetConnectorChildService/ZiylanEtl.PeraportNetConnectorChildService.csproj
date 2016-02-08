@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C64BD767-5842-41A2-9164-55EDD7190F9A}</ProjectGuid>
+    <ProjectGuid>{7957DC0F-F61F-461E-87E3-9A96DB152A59}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ZiylanEtl.EtlWebService</RootNamespace>
-    <AssemblyName>ZiylanEtl.EtlWebService</AssemblyName>
+    <RootNamespace>ZiylanEtl.PeraportChildService</RootNamespace>
+    <AssemblyName>ZiylanEtl.PeraportChildService</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,22 +31,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RazorEngine, Version=3.7.7.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.7.7\lib\net45\RazorEngine.dll</HintPath>
+    <Reference Include="AutoMapper, Version=4.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.2.0\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.0.0\lib\net45\System.Web.Razor.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
+    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultEtlWebService.cs" />
-    <Compile Include="PeraportOperationResult.cs" />
-    <Compile Include="PeraportOperation.cs" />
+    <Compile Include="Dto\DtoSet.cs" />
+    <Compile Include="Dto\ZinventUyDto.cs" />
+    <Compile Include="Dto\ZinventStokADto.cs" />
+    <Compile Include="Dto\ZinventStokDto.cs" />
+    <Compile Include="Dto\ZinventMlzDto.cs" />
+    <Compile Include="Dto\T023tDto.cs" />
+    <Compile Include="Dto\T134tDto.cs" />
+    <Compile Include="Dto\T6wstDto.cs" />
+    <Compile Include="Dto\WrfBrandsTDto.cs" />
+    <Compile Include="Dto\ZentLfa1Dto.cs" />
+    <Compile Include="Dto\ZentT001Dto.cs" />
+    <Compile Include="Dto\ZinventAsortiDto.cs" />
+    <Compile Include="Dto\ZinventFytDto.cs" />
+    <Compile Include="Dto\ZinventHrkDto.cs" />
+    <Compile Include="Dto\ZinventSasDto.cs" />
+    <Compile Include="Dto\ZinventTesDto.cs" />
+    <Compile Include="Dto\ZinventTrnDto.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="PeraPortSapWsClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +71,13 @@
       <Project>{17EA62DA-BFA1-4B5C-AB89-2227C9150835}</Project>
       <Name>ZiylanEtl.Abstraction</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ZiylanEtl.DataAccess\ZiylanEtl.DataAccess.csproj">
+      <Project>{f8667245-ed03-4c78-8965-d746c6025f33}</Project>
+      <Name>ZiylanEtl.DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

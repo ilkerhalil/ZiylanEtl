@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Linq;
+using System.ServiceModel;
+using System.ServiceModel.Channels;
+
 using ZiylanEtl.Abstraction.ServiceContracts;
 
 namespace ZiylanEtl.EtlWebService
@@ -15,6 +18,15 @@ namespace ZiylanEtl.EtlWebService
 
         public void StartChildService(EtlServiceRequest etlServiceRequest)
         {
+
+            OperationContext context = OperationContext.Current;
+            MessageProperties prop = context.IncomingMessageProperties;
+            RemoteEndpointMessageProperty endpoint =
+                prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+            string ip = endpoint.Address;
+
+            Console.WriteLine("Service Triggered From " + ip);
+
             try
             {
                 var etlChildService = _services.Single(s => s.ServiceName == etlServiceRequest.ServiceName);
