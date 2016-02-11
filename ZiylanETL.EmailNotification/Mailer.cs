@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.IO;
 using System.Net;
 using System.Text;
 using System.Net.Mail;
+using System.Web.Mvc;
+using Postal;
 using ZiylanEtl.Abstraction.Notification;
 
 namespace ZiylanEtl.EmailNotification
@@ -32,6 +32,25 @@ namespace ZiylanEtl.EmailNotification
             mailMessage.Body = content;
             mailMessage.Subject = Subject;
             _smtpClient.Send(mailMessage);
+
+
+            dynamic email = new Email("Example");
+            email.To = "webninja@example.com";
+            email.Send();
+
+
+            var viewsPath = Path.GetFullPath(@"..\..\Views");
+
+            var engines = new ViewEngineCollection();
+            engines.Add(new FileSystemRazorViewEngine(viewsPath));
+
+            var service = new EmailService(engines);
+            dynamic email = new Email("Test");
+
+            // Will look for Test.cshtml or Test.vbhtml in Views directory.
+            email.Message = "Hello, non-asp.net world!";
+            service.Send(email);
+           // RESTORE DATABASE is terminating abnormally.
         }
     }
 }

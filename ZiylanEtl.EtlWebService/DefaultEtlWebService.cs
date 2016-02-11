@@ -16,16 +16,17 @@ namespace ZiylanEtl.EtlWebService
             _services = services;
         }
 
-        public void StartChildService(EtlServiceRequest etlServiceRequest)
+        public void StartChildService(EtlServiceRequest etlServiceRequest)      
         {
 
             OperationContext context = OperationContext.Current;
             MessageProperties prop = context.IncomingMessageProperties;
             RemoteEndpointMessageProperty endpoint =
                 prop[RemoteEndpointMessageProperty.Name] as RemoteEndpointMessageProperty;
+
             string ip = endpoint.Address;
 
-            Console.WriteLine("Service Triggered From " + ip);
+            Console.WriteLine("Tetiklendi IP : " + ip);
 
             try
             {

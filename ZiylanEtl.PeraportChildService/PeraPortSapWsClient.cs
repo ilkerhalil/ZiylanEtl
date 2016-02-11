@@ -133,7 +133,7 @@ namespace ZiylanEtl.PeraportChildService
             object insert = null;
             this.ChildServiceParameters.TryGetValue("Insert", out insert);
 
-            bool testMode =  Convert.ToBoolean(ConfigurationManager.AppSettings["TestMode"]);
+            bool testMode = Convert.ToBoolean(ConfigurationManager.AppSettings["TestMode"]);
 
             if (insert != null) _insert = (bool)insert;
 
@@ -149,7 +149,6 @@ namespace ZiylanEtl.PeraportChildService
             //_notification.Send("");
 
             Helper.CreateLog(logContent, webServisBaslamaZamani, webServisBitisZamani, webServisSure, dbKayitBaslangicZamani, dbKayitBitisZamani , toplamDbKayitSuresi, toplamGecenZaman);
-
         }
 
         private void InsertData(DtoSet dtoSet)
